@@ -18,18 +18,6 @@ security:
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
-
-        main:
-            pattern:             .*
-            context:             user
-            form_login:
-                provider:       fos_userbundle
-                login_path:     /login
-                use_forward:    false
-                check_path:     /login_check
-                failure_path:   null
-            logout:             true
-            anonymous:          true
         admin:
             pattern:            /admin(.*)
             context:            user
@@ -41,6 +29,17 @@ security:
                 failure_path:   null
             logout:
                 path:           /admin/logout
+            anonymous:          true
+        main:
+            pattern:             .*
+            context:             user
+            form_login:
+                provider:       fos_userbundle
+                login_path:     /login
+                use_forward:    false
+                check_path:     /login_check
+                failure_path:   null
+            logout:             true
             anonymous:          true
     access_control:
         # URL of FOSUserBundle which need to be available to anonymous users
