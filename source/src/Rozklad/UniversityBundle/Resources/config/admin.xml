@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services/services-1.0.xsd">
+    <services>
+        <service id="rozklad.university.admin.chair" class="Rozklad\UniversityBundle\Admin\ChairAdmin">
+            <tag name="sonata.admin" manager_type="orm" group="University" label="Chair"/>
+            <argument/>
+            <argument>Rozklad\UniversityBundle\Entity\Chair</argument>
+            <argument/>
+        </service>
+        <service id="rozklad.university.admin.teacher" class="Rozklad\UniversityBundle\Admin\TeacherAdmin">
+            <tag name="sonata.admin" manager_type="orm" group="University" label="Teacher"/>
+            <argument/>
+            <argument>Rozklad\UniversityBundle\Entity\Teacher</argument>
+            <argument/>
+        </service>
+        <service id="rozklad.university.admin.faculty" class="Rozklad\UniversityBundle\Admin\FacultyAdmin">
+            <tag name="sonata.admin" manager_type="orm" group="University" label="Faculty"/>
+            <argument/>
+            <argument>Rozklad\UniversityBundle\Entity\Faculty</argument>
+            <argument/>
+        </service>
+        <service id="rozklad.university.admin.specialty" class="Rozklad\UniversityBundle\Admin\SpecialtyAdmin">
+            <tag name="sonata.admin" manager_type="orm" group="University" label="Specialty"/>
+            <argument/>
+            <argument>Rozklad\UniversityBundle\Entity\Specialty</argument>
+            <argument/>
+        </service>
+        <service id="rozklad.university.admin.groups" class="Rozklad\UniversityBundle\Admin\GroupsAdmin">
+            <tag name="sonata.admin" manager_type="orm" group="University" label="Groups"/>
+            <argument/>
+            <argument>Rozklad\UniversityBundle\Entity\Groups</argument>
+            <argument/>
+        </service>
+        <service id="rozklad.university.admin.subject" class="Rozklad\UniversityBundle\Admin\SubjectAdmin">
+            <tag name="sonata.admin" manager_type="orm" group="University" label="Subject"/>
+            <argument/>
+            <argument>Rozklad\UniversityBundle\Entity\Subject</argument>
+            <argument/>
+        </service>
+        <service id="rozklad.university.admin.auditory" class="Rozklad\UniversityBundle\Admin\AuditoryAdmin">
+            <tag name="sonata.admin" manager_type="orm" group="University" label="Auditory"/>
+            <argument/>
+            <argument>Rozklad\UniversityBundle\Entity\Auditory</argument>
+            <argument/>
+        </service>
+    </services>
+</container>
