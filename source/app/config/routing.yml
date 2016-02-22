@@ -1,3 +1,7 @@
+rozklad_university:
+    resource: "@RozkladUniversityBundle/Resources/config/routing.xml"
+    prefix:   /
+
 app:
     resource: "@AppBundle/Controller/"
     type:     annotation
