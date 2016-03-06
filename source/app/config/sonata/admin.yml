@@ -1,2 +1,4 @@
 sonata_admin:
   title: Rozklad2.0
+  templates:
+    layout:  ::admin/standard_layout.html.twig
