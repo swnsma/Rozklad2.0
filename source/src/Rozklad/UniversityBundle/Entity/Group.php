@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Groups
  */
-class Groups
+class Group
 {
     /**
      * @var integer
