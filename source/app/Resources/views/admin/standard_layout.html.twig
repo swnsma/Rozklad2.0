@@ -14,3 +14,10 @@
         </ul>
     {% endif %}
 {% endblock %}
+
+{% block sonata_top_nav_menu %}
+    {% if app.security.token and is_granted('ROLE_SONATA_ADMIN') %}
+        {{ parent() }}
+    {% endif %}
+{% endblock %}
+
