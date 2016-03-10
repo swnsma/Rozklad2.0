@@ -1,3 +1,7 @@
+api:
+  resource: "@RozkladUniversityBundle/Resources/config/routing.xml"
+  type: rest
+  prefix: /api/university
 sonata_admin_calendar:
     pattern:  /admin/calendar
     defaults: { _controller: RozkladCalendarBundle:Admin:calendar }
