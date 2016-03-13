@@ -23,7 +23,7 @@
       <many-to-many field="groups" target-entity="Rozklad\UniversityBundle\Entity\Group">
           <join-table name="event_group">
               <join-columns>
-                  <join-column name="user_id" referenced-column-name="id" />
+                  <join-column name="event_id" referenced-column-name="id" />
               </join-columns>
               <inverse-join-columns>
                   <join-column name="group_id" referenced-column-name="id" />
