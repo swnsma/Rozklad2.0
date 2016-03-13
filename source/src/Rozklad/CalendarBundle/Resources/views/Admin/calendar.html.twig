@@ -22,38 +22,7 @@
     <script src='{{ asset("/bundles/rozkladcalendar/vendor/react/react-0.14.7/build/react.js") }}'></script>
     <script src='{{ asset("/bundles/rozkladcalendar/vendor/react/react-0.14.7/build/react-dom.js") }}'></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.24/browser.min.js"></script>
-    <script type="text/babel">
-        class Calendar extends React.Component{
-            componentDidMount(){
-                const {calendar} = this.refs;
-                $(calendar).fullCalendar({
-                    events: this.props.events,
-                    firstDay: 1
-                });
-            }
-            componentWillUnmount(){
-                const {calendar} = this.refs;
-                $(calendar).fullCalendar('destroy');
-            }
+    <script type="text/babel" src="{{ asset("/bundles/rozkladcalendar/js/main.js") }}"></script>
 
-            render(){
-                return (
-                    <div ref="calendar"></div>
-                );
-            }
-        }
 
-        class App extends React.Component{
-            render(){
-                return (
-                    <Calendar/>
-                )
-            }
-        }
-
-        ReactDOM.render(
-          <App/>,
-          document.getElementById('calendarBody')
-        );
-    </script>
 {% endblock %}
