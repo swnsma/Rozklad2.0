@@ -72,11 +72,6 @@ class Event
      */
     private $teacher;
 
-    /**
-     * @var \Rozklad\UniversityBundle\Entity\Group
-     */
-    private $group;
-
 
     /**
      * Set schedule
@@ -169,27 +164,49 @@ class Event
     {
         return $this->teacher;
     }
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $groups;
 
     /**
-     * Set group
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->groups = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add groups
      *
-     * @param \Rozklad\UniversityBundle\Entity\Group $group
+     * @param \Rozklad\UniversityBundle\Entity\Group $groups
      * @return Event
      */
-    public function setGroup(\Rozklad\UniversityBundle\Entity\Group $group = null)
+    public function addGroup(\Rozklad\UniversityBundle\Entity\Group $groups)
     {
-        $this->group = $group;
+        $this->groups[] = $groups;
 
         return $this;
     }
 
     /**
-     * Get group
+     * Remove groups
      *
-     * @return \Rozklad\UniversityBundle\Entity\Group 
+     * @param \Rozklad\UniversityBundle\Entity\Group $groups
      */
-    public function getGroup()
+    public function removeGroup(\Rozklad\UniversityBundle\Entity\Group $groups)
     {
-        return $this->group;
+        $this->groups->removeElement($groups);
+    }
+
+    /**
+     * Get groups
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getGroups()
+    {
+        return $this->groups;
     }
 }
