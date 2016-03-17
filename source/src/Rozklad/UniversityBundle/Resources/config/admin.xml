@@ -45,5 +45,11 @@
             <argument>Rozklad\UniversityBundle\Entity\Auditory</argument>
             <argument/>
         </service>
+        <service id="rozklad.university.admin.semester" class="Rozklad\UniversityBundle\Admin\SemesterAdmin">
+            <tag name="sonata.admin" manager_type="orm" group="University" label="Semester"/>
+            <argument/>
+            <argument>Rozklad\UniversityBundle\Entity\Semester</argument>
+            <argument/>
+        </service>
     </services>
 </container>

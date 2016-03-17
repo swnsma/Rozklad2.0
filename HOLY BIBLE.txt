@@ -1,0 +1,22 @@
+php source/app/console server:run 192.168.0.1:8080
+php source/app/console server:status
+
+php source/app/console generate:bundle --namespace=Acme/HelloBundle --format=yml
+
+php source/app/console cache:clear --env=prod --no-debug
+
+php source/app/console doctrine:database:create
+php source/app/console doctrine:generate:entities Acme/StoreBundle/Entity/Product //добавити гетери та сетери
+php source/app/console doctrine:schema:update --force // создать БД
+
+php source/app/console assets:install web
+
+php source/app/console doctrine:schema:update --force
+
+php source/app/console generate:doctrine:entity
+php source/app/console gen:doc:crud
+http://symfony.com/doc/current/bundles/SensioGeneratorBundle/commands/generate_doctrine_entity.html
+
+
+
+http://symfony-gu.ru/documentation/ru/html/
