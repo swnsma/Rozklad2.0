@@ -17,12 +17,14 @@
 
 {% block javascripts %}
     {{ parent() }}
-    <script src='{{ asset("/bundles/rozkladcalendar/vendor/fullcalendar/fullcalendar-2.6.1/lib/moment.min.js") }}'></script>
-    <script src='{{ asset("/bundles/rozkladcalendar/vendor/fullcalendar/fullcalendar-2.6.1/fullcalendar.js") }}'></script>
-    <script src='{{ asset("/bundles/rozkladcalendar/vendor/react/react-0.14.7/build/react.js") }}'></script>
-    <script src='{{ asset("/bundles/rozkladcalendar/vendor/react/react-0.14.7/build/react-dom.js") }}'></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.24/browser.min.js"></script>
-    <script type="text/babel" src="{{ asset("/bundles/rozkladcalendar/js/main.js") }}"></script>
+    <script src='{{ asset("/node_modules/moment/moment.js") }}'></script>
+    <script src='{{ asset("/node_modules/fullcalendar/dist/fullcalendar.min.js") }}'></script>
+    <script src='{{ asset("/node_modules/react/dist/react.js") }}'></script>
+    <script src='{{ asset("/node_modules/react-dom/dist/react-dom.js") }}'></script>
+    <script src='{{ asset("/node_modules/babel-core/browser.js") }}'></script>
 
+    <script type="text/babel" src='{{ asset("/bundles/rozkladcalendar/js/components/Calendar.js") }}'></script>
+    <script type="text/babel" src='{{ asset("/bundles/rozkladcalendar/js/components/App.js") }}'></script>
+    <script type="text/babel" src="{{ asset("/bundles/rozkladcalendar/js/main.js") }}"></script>
 
 {% endblock %}
