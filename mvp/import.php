@@ -29,6 +29,7 @@ CREATE TABLE IF NOT EXISTS `schedule_flat`(
 `group` varchar(255),
 `subject` varchar(255),
 `teacher` varchar(255),
+`type` int,
 `schedule` int,
 `auditory` varchar(10),
 `week` int,
@@ -37,7 +38,7 @@ CREATE TABLE IF NOT EXISTS `schedule_flat`(
 SQL;
 $pdo->exec($query);
 $query = <<<SQL
-INSERT INTO `schedule_flat`(`group`, `subject`, `teacher`, `schedule`, `auditory`, `week`, `dow`) VALUES(?, ?, ?, ?, ?, ?, ?);
+INSERT INTO `schedule_flat`(`group`, `subject`, `teacher`, `type`, `schedule`, `auditory`, `week`, `dow`) VALUES(?, ?, ?, ?, ?, ?, ?, ?);
 SQL;
 
 $handler = fopen($fileName, "r");
