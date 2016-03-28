@@ -9,7 +9,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "fullcalendar": "^2.6.1",
-    "materialize-css": "^0.97.5"
+    "bootstrap": "^3.3.6",
+    "bootstrap-select": "^1.10.0",
+    "fullcalendar": "^2.6.1"
   }
 }
