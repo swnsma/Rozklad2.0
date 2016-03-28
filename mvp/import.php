@@ -2,7 +2,7 @@
 $fileName = $argv[1];
 if($fileName == '-h') {
     die("file_name dsn user password [drop?]
-    Example: import.csv \"mysql:host=127.0.0.1:3308;dbname=axpdb\" admin 1234 true");
+    Example: import.csv \"mysql:host=127.0.0.1:3308;dbname=axpdb;charset=UTF8\" admin 1234 true");
 }
 $dsn = $argv[2];
 $user = $argv[3];
@@ -33,7 +33,7 @@ CREATE TABLE IF NOT EXISTS `schedule_flat`(
 `auditory` varchar(10),
 `week` int,
 `dow` int
-);
+) CHARACTER SET utf8 COLLATE utf8_unicode_ci;
 SQL;
 $pdo->exec($query);
 $query = <<<SQL
@@ -42,7 +42,6 @@ SQL;
 
 $handler = fopen($fileName, "r");
 $sth = $pdo->prepare($query);
-
 while(($data = fgetcsv($handler)) !== false) {
     $sth->execute($data);
 }
