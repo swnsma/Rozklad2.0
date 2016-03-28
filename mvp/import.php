@@ -1,12 +1,12 @@
 <?php
-$fileName = $argv[1];
+$fileName = "import.csv";
 if($fileName == '-h') {
     die("file_name dsn user password [drop?]
     Example: import.csv \"mysql:host=127.0.0.1:3308;dbname=axpdb\" admin 1234 true");
 }
-$dsn = $argv[2];
-$user = $argv[3];
-$password = $argv[4];
+$dsn = "mysql:host=localhost;dbname=mvp";
+$user = "root";
+$password = "root";
 $drop = isset($argv[5]) ? $argv[5] : '';
 
 if (!is_file($fileName)) {
@@ -14,7 +14,10 @@ if (!is_file($fileName)) {
 }
 
 try {
-$pdo = new PDO($dsn, $user, $password, array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
+$pdo = new PDO($dsn, $user, $password, array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+    PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES \'UTF8\''));
+//    $pdo->setAttribute(PDO::MYSQL_ATTR_INIT_COMMAND,'SET NAMES utf8');
+    $pdo->exec("set names utf8");
 } catch (Exception $e) {
     die('Can\'t connect to database server.');
 }
@@ -29,6 +32,7 @@ CREATE TABLE IF NOT EXISTS `schedule_flat`(
 `group` varchar(255),
 `subject` varchar(255),
 `teacher` varchar(255),
+`type` int,
 `schedule` int,
 `auditory` varchar(10),
 `week` int,
@@ -37,7 +41,7 @@ CREATE TABLE IF NOT EXISTS `schedule_flat`(
 SQL;
 $pdo->exec($query);
 $query = <<<SQL
-INSERT INTO `schedule_flat`(`group`, `subject`, `teacher`, `schedule`, `auditory`, `week`, `dow`) VALUES(?, ?, ?, ?, ?, ?, ?);
+INSERT INTO `schedule_flat`(`group`, `subject`, `teacher`,`type`, `schedule`, `auditory`, `week`, `dow`) VALUES(?, ?,?, ?, ?, ?, ?, ?);
 SQL;
 
 $handler = fopen($fileName, "r");

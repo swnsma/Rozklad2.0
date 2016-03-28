@@ -1,7 +1,7 @@
 <?php
 class TestModel
 {
-    CONST DSN = 'mysql:host=localhost;dbname=test';
+    CONST DSN = 'mysql:host=localhost;dbname=mvp';
     CONST USER = 'root';
     CONST PASSWORD = 'root';
     private $connection = null;
