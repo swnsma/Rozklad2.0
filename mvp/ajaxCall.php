@@ -19,7 +19,8 @@ class TestModel
 
     protected function loadLessons()
     {
-        $query = "SELECT * FROM `schedule_flat` WHERE `schedule_flat`.`group`='мо-59'";
+        $group = isset($_GET['group']) ? $_GET['group'] : 'ЕП-41к';
+        $query = "SELECT * FROM `schedule_flat` WHERE `schedule_flat`.`group`='$group'";
         $sth = $this->connection->prepare($query);
         $sth->setFetchMode(PDO::FETCH_ASSOC);
         $sth->execute();

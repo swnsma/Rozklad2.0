@@ -12,6 +12,11 @@
     <link media="print" rel="stylesheet" href="node_modules/bootstrap-select/dist/css/bootstrap-select.min.css"/>
 
     <style>
+        .calendar-container{
+            background: white;
+            position: relative;
+            z-index: 100000;
+        }
         .dropdown-menu.inner{
             position: relative;
         }
@@ -23,6 +28,9 @@
             text-align: center;
             font-family: 'PT Serif','PT Serif1', serif;
             font-weight: 500;
+        }
+        #calendar{
+            margin-top: 30px;
         }
         #calendar tr{
             height: 40px;
@@ -64,14 +72,12 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-sm-3 col-md-2 sidebar">asd</div>
-        <div class="col-sm-8 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+        <div class="col-sm-8 col-sm-offset-3 col-md-10 col-md-offset-2 main calendar-container">
             <h1 class="h1 timetable-title">Розклад ЖДТУ</h1>
             <div class="select-line">
 
                 <select style="display: none" class="group" data-live-search="true">
-                    <option>Hot Dog, Fries and a Soda</option>
-                    <option>Burger, Shake and a Smile</option>
-                    <option>Sugar, Spice and all things nice</option>
+
                 </select>
             </div>
             <div id="calendar">
@@ -88,20 +94,9 @@
 
 <script src="node_modules/bootstrap-select/dist/js/bootstrap-select.min.js"> </script>
 <script>
-    $.ajax({
-        url: 'ajaxGroup.php',
-        type: 'GET',
-        contentType: 'application/json',
-        dataType: 'json',
-        success: function(response){
 
-        },
-        error: function(er) {
-            alert('Не вдалося отримати ваші дані'+er);
-        }
-
-    });
-    $(document).ready(function() {
+    var def = 'ЕП-41к';
+    function renderCalendar() {
         $('#calendar').fullCalendar({
             weekends: false, // will hide Saturdays and Sundays
             defaultView: "agendaWeek",
@@ -136,7 +131,7 @@
 
             },
             eventSources: [
-                '/mvp/ajaxCall.php'
+                '/mvp/ajaxCall.php?group=' +def
             ],
             eventRender: function(event, element) {
                 $(element).append($('<span class="teacher">').text(event.teacher));
@@ -148,11 +143,40 @@
             color: 'yellow',   // an option!
             textColor: 'black' // an option!
         })
+    }
+    $(document).ready(function() {
+        renderCalendar();
+    });
+    $.ajax({
+        url: 'ajaxGroup.php',
+        type: 'GET',
+        contentType: 'application/json',
+        dataType: 'json',
+        success: function(response){
+            var html = '';
+            for(var i =0; i<response.length;++i){
+                html +='<option value="' + response[i].group +  '">' + response[i].group + '</option>';
+            }
+            $('.group').html(html);
+            $('.group').selectpicker();
+        },
+        error: function(er) {
+            alert('Не вдалося отримати ваші дані'+er);
+        }
 
     });
 
-    $('.selectpicker').selectpicker({
-    });
+    $('.group').on('change', function (event) {
+        var def1 = event.target.value;
+        $('#calendar').fullCalendar('removeEventSource','/mvp/ajaxCall.php?group=' +def);
+        debugger;
+        $('#calendar').fullCalendar( 'addEventSource',
+            '/mvp/ajaxCall.php?group=' +def1
+        );
+        def = def1;
+    })
+
+
 </script>
 </body>
 </html>
