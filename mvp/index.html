@@ -46,12 +46,6 @@
         #calendar .practice{
             background: chocolate;
         }
-        .select-line{
-            background: rgb(7, 82, 93);
-            line-height:  50px;
-            min-height: 50px;
-            width: 100%;
-        }
 
         body .sidebar{
             background: #171717;
@@ -74,8 +68,9 @@
         <div class="col-sm-3 col-md-2 sidebar">asd</div>
         <div class="col-sm-8 col-sm-offset-3 col-md-10 col-md-offset-2 main calendar-container">
             <h1 class="h1 timetable-title">Розклад ЖДТУ</h1>
-            <div class="select-line">
 
+            <div style="position: relative;
+    top: 60px;">
                 <select style="display: none" class="group" data-live-search="true">
 
                 </select>
@@ -115,7 +110,7 @@
                 right: 'prev,next today'
             },
             monthNames: ['Cічень', 'Лютий', 'Березень', 'Квітень', 'Травень', 'Червень','Липень', 'Серпень', 'Bересень', 'Жовтень', 'Листопад', 'Грудень'],
-            monthNamesShort: ['Січ.', 'Лют.', 'Березень', 'Квіт.', 'Травень', 'Червень', 'Липень', 'Серп.', 'Bересень', 'Жовтень', 'Листопад', 'Грудень'],
+            monthNamesShort: ['Січ.', 'Лют.', 'Бер.', 'Квіт.', 'Трав.', 'Чер.', 'Лип.', 'Серп.', 'Bер.', 'Жов.', 'Лис.', 'Гру.'],
             dayNames: ["Воскресенье", "Понедельник", "Вторник", "Среда", "Четверг", "Пятница", "Суббота"],
             dayNamesShort: ["ВС", "ПН", "ВТ", "СР", "ЧТ", "ПТ", "СБ"],
             timezone:'local',
