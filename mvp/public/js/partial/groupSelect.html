@@ -1,0 +1,17 @@
+<ul class="sidebar-menu">
+    <li  ng-repeat="group in groups" class=" faculty-select ">
+        <a href="#">
+            <i class="fa fa-university"></i>
+            Певний факультет
+            <i class="fa fa-angle-left pull-right"></i>
+        </a>
+        <ul class="treeview-menu">
+            <li  ng-repeat="group in groups" class="group-select treeview  " ng-click="setActiveGroup(group.group)">
+                <a href="#{{group.group}}">
+                    <i class="fa fa-users"></i>
+                    {{group.group}}
+                </a>
+            </li>
+        </ul>
+    </li>
+</ul>

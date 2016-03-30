@@ -1,0 +1,47 @@
+.calendar-container{
+    background: white;
+    position: relative;
+    z-index: 100000;
+}
+.dropdown-menu.inner{
+    position: relative;
+}
+body{
+    position: relative;
+    background: white;
+}
+h1.timetable-title{
+    text-align: center;
+    font-family: 'PT Serif','PT Serif1', serif;
+    font-weight: 500;
+}
+#calendar{
+    margin-top: 30px;
+}
+#calendar tr{
+    height: 40px;
+}
+#calendar .teacher{
+    color: black;
+    font-weight: bold;
+}
+#calendar .auditory{
+    background: black;
+    color: white;
+}
+#calendar .practice{
+    background: chocolate;
+}
+
+.calendar-page .content-wrapper{
+    background: white;
+}
+.group-select:first-child{
+    border-top: black 1px solid;
+}
+.group-select{
+    border-bottom: black 1px solid;
+}
+.faculty-select{
+    border-bottom: 1px dashed white;
+}

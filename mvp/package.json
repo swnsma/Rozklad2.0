@@ -9,8 +9,10 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "bootstrap": "^3.3.6",
-    "bootstrap-select": "^1.10.0",
+    "admin-lte": "^2.3.3",
+    "angular": "^1.5.3",
+    "angular-route": "^1.5.3",
+    "font-awesome": "^4.5.0",
     "fullcalendar": "^2.6.1"
   }
 }
