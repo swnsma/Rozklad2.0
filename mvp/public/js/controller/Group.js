@@ -29,9 +29,9 @@ app.controller("GroupCtrl", function ($scope, $http) {
                     //aspectRatio:7,
                     firstDay: 1,
                     header: {
-                        left: '',
+                        left: 'prev,next today ',
                         center: 'title',
-                        right: 'prev,next today'
+                        right: 'agendaDay,agendaWeek'
                     },
                     monthNames: ['Cічень', 'Лютий', 'Березень', 'Квітень', 'Травень', 'Червень', 'Липень', 'Серпень', 'Bересень', 'Жовтень', 'Листопад', 'Грудень'],
                     monthNamesShort: ['Січ.', 'Лют.', 'Бер.', 'Квіт.', 'Трав.', 'Чер.', 'Лип.', 'Серп.', 'Bер.', 'Жов.', 'Лис.', 'Гру.'],
