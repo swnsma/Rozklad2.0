@@ -18,9 +18,11 @@ app.controller("GroupCtrl", function ($scope, $http) {
                     weekends: false, // will hide Saturdays and Sundays
                     defaultView: "agendaWeek",
                     height: 'auto',
+                    slotLabelInterval: 10,
+                    slotDuration: '00:30:00',
                     displayEventTime: true,
                     minTime: '08:00:00',
-                    maxTime: '14:00:00',
+                    maxTime: '14:10:00',
                     //contentHeight:'auto',
                     fixedWeekCount: false,
                     allDaySlot: false,
