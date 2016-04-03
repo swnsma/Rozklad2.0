@@ -59,9 +59,9 @@ app.controller("GroupCtrl", function ($scope, $http) {
                         }
                         $(element).find('.fc-content').append($('<div class="teacher">').text(event.teacher));
 
-                        if (event.type == 1) {
+                        if (event.type === '1') {
                             $(element).addClass('practice');
-                        }else{
+                        }else if(event.type === '0'){
                             $(element).addClass('lecture');
                         };
                     },
