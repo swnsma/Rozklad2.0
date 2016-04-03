@@ -59,14 +59,3 @@ h1.timetable-title{
 #calendar .fc-time{
 
 }
-.calendar-header{
-    background: white;
-    -webkit-box-shadow: 6px 7px 5px 1px rgba(0,0,0,0.5);
-    -moz-box-shadow: 6px 7px 5px 1px rgba(0,0,0,0.5);
-    box-shadow: 6px 7px 5px 1px rgba(0,0,0,0.5);
-    border-top: 1px dashed rgba(0,0,0,0.2);
-    /*background: #eee;*/
-}
-.header-calendar-checked .hover{
-    cursor: pointer;
-}

@@ -9,9 +9,6 @@ app.controller("GroupCtrl", function ($scope, $http) {
     }).error(function (data, status, headers, config) {
 
     });
-
-    $scope.calendarShowTeacher = false;
-    $scope.calendarShowSubject = true;
     $scope.group = '';
     $scope.countClick = 0;
     $scope.setActiveGroup = function (group) {
@@ -20,6 +17,7 @@ app.controller("GroupCtrl", function ($scope, $http) {
                 $('#calendar').fullCalendar({
                     weekends: false, // will hide Saturdays and Sundays
                     defaultView: "agendaWeek",
+                    now: '2016-04-01',
                     height: 'auto',
                     slotLabelInterval: 10,
                     slotDuration: '00:30:00',
@@ -29,6 +27,7 @@ app.controller("GroupCtrl", function ($scope, $http) {
                     //contentHeight:'auto',
                     fixedWeekCount: false,
                     allDaySlot: false,
+                    //aspectRatio:7,
                     firstDay: 1,
                     header: {
                         left: 'prev,next today ',
@@ -56,13 +55,14 @@ app.controller("GroupCtrl", function ($scope, $http) {
                     ],
                     eventRender: function (event, element) {
                         $(element).append($('<span class="teacher">').text(event.teacher));
-                        if(event.auditory) {
-                            $(element).append($('<div class="auditory">').text(event.auditory));
-                        }
+                        $(element).append($('<div class="auditory">').text(event.auditory));
                         if (event.type == 1) {
                             $(element).addClass('practice');
-                        };
-                    }
+                        }
+                        ;
+                    },
+                    color: 'yellow',   // an option!
+                    textColor: 'black' // an option!
                 })
             }
 
