@@ -55,7 +55,9 @@ app.controller("GroupCtrl", function ($scope, $http) {
                     ],
                     eventRender: function (event, element) {
                         $(element).append($('<span class="teacher">').text(event.teacher));
-                        $(element).append($('<div class="auditory">').text(event.auditory));
+                        if(event.auditory) {
+                            $(element).append($('<div class="auditory">').text(event.auditory));
+                        }
                         if (event.type == 1) {
                             $(element).addClass('practice');
                         }
