@@ -26,8 +26,10 @@ h1.timetable-title{
     font-weight: bold;
 }
 #calendar .auditory{
-    background: black;
     color: white;
+}
+#calendar .auditory::after{
+    content: ' аудиторія';
 }
 #calendar .practice{
     background: chocolate;
@@ -48,4 +50,23 @@ h1.timetable-title{
 
 #calendar .fc-today{
     background-color: rgba(0,172,214,0.2);
+}
+#calendar .fc-event{
+    font-size: 0.9em;
+    font-weight: 700;
+    color: #000;
+}
+#calendar .fc-time{
+
+}
+.calendar-header{
+    background: white;
+    -webkit-box-shadow: 6px 7px 5px 1px rgba(0,0,0,0.5);
+    -moz-box-shadow: 6px 7px 5px 1px rgba(0,0,0,0.5);
+    box-shadow: 6px 7px 5px 1px rgba(0,0,0,0.5);
+    border-top: 1px dashed rgba(0,0,0,0.2);
+    /*background: #eee;*/
+}
+.header-calendar-checked .hover{
+    cursor: pointer;
 }
