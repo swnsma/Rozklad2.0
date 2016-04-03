@@ -15,25 +15,6 @@ h1.timetable-title{
     font-family: 'PT Serif','PT Serif1', serif;
     font-weight: 500;
 }
-#calendar{
-    margin-top: 30px;
-}
-#calendar tr{
-    height: 40px;
-}
-#calendar .teacher{
-    color: black;
-    font-weight: bold;
-}
-#calendar .auditory{
-    color: white;
-}
-#calendar .auditory::after{
-    content: ' аудиторія';
-}
-#calendar .practice{
-    background: chocolate;
-}
 
 .calendar-page .content-wrapper{
     background: white;
@@ -48,14 +29,3 @@ h1.timetable-title{
     border-bottom: 1px dashed white;
 }
 
-#calendar .fc-today{
-    background-color: rgba(0,172,214,0.2);
-}
-#calendar .fc-event{
-    font-size: 0.9em;
-    font-weight: 700;
-    color: #000;
-}
-#calendar .fc-time{
-
-}

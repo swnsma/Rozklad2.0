@@ -1,0 +1,45 @@
+#calendar{
+    margin-top: 30px;
+}
+#calendar tr{
+    height: 40px;
+}
+#calendar .teacher{
+    font-weight: bold;
+    color: #999;
+    font-size: 0.8em;
+    text-align: right;
+}
+#calendar .auditory{
+    color: black;
+    font-size: 15px;
+    text-align: right;
+}
+
+#calendar .auditory::after{
+    font-size: 8px;
+    content: ' аудиторія';
+}
+#calendar .practice{
+    background: white;
+}
+#calendar .lecture,#calendar .practice{
+    border: 1px solid black;
+}
+#calendar .lecture{
+    background: #eee;
+}
+#calendar .fc-today{
+    background-color: rgba(0,172,214,0.2);
+}
+#calendar .fc-event{
+    font-size: 0.9em;
+    font-weight: 700;
+    color: #000;
+}
+#calendar .fc-time{
+    font-size: 15px;
+}
+#calendar .fc-title{
+    color: #999;
+}
