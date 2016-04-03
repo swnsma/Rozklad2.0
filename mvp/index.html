@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="node_modules/admin-lte/bootstrap/css/bootstrap.css"/>
     <link rel="stylesheet" href="node_modules/admin-lte/dist/css/AdminLTE.min.css"/>
     <link rel="stylesheet" href="node_modules/admin-lte/dist/css/skins/_all-skins.min.css"/>
+    <link rel="stylesheet" href="node_modules/admin-lte/plugins/iCheck/all.css"/>
     <link rel="stylesheet" href="node_modules/font-awesome/css/font-awesome.min.css"/>
 
     <link rel="stylesheet" href="public/css/style.css"/>
@@ -35,6 +36,21 @@
     <div class="content-wrapper ">
         <section class="content">
             <h1 class="h1 timetable-title">Розклад ЖДТУ ({{group}})</h1>
+            <div class="calendar-header">
+                <div class="header-calendar-checked">
+                    <label>
+                        <input type="checkbox" class="show-subject"/>
+                        <span> Показувати предмет</span>
+                    </label>
+                    <br/>
+                    <label>
+                        <input type="checkbox" class="show-teacher">
+                        <span> Показувати викладача</span>
+                    </label>
+
+
+                </div>
+            </div>
             <div id="calendar"></div>
         </section>
     </div>
@@ -46,6 +62,7 @@
 
 <script src="node_modules/admin-lte/bootstrap/js/bootstrap.min.js"></script>
 <script src="node_modules/admin-lte/dist/js/app.min.js"></script>
+<script src="node_modules/admin-lte/plugins/iCheck/icheck.min.js"></script>
 
 <script src="node_modules/angular/angular.js"></script>
 <script src="node_modules/angular-route/angular-route.min.js"></script>
@@ -53,5 +70,42 @@
 <script src="public/js/controller/Group.js"></script>
 
 <script src='public/js/main.js'></script>
+
+<script>
+    //Flat red color scheme for iCheck
+    $('input[type="checkbox"].show-teacher, input[type="checkbox"].show-subject').iCheck({
+        checkboxClass: 'icheckbox_flat-blue',
+        radioClass: 'iradio_flat-blue'
+    });
+
+    $('input[type="checkbox"].show-teacher').on('ifChecked', function(event){
+        $('#calendar .teacher').css({
+            'display':'block'
+        })
+    });
+    $('input[type="checkbox"].show-teacher').on('ifUnchecked', function(event){
+        $('#calendar .teacher').css({
+            'display':'none'
+        })
+    });
+
+    $('input[type="checkbox"].show-teacher').on('ifCreated', function(event){
+        $('#calendar .teacher').css({
+            'display':'none'
+        })
+    });
+
+    $('input[type="checkbox"].show-subject').on('ifChecked', function(event){
+        $('#calendar .fc-title').css({
+            'display':'block'
+        })
+    });
+    $('input[type="checkbox"].show-subject').on('ifUnchecked', function(event){
+        $('#calendar .fc-title').css({
+            'display':'none'
+        })
+    });
+
+</script>
 </body>
 </html>
