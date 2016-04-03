@@ -21,13 +21,14 @@
     content: ' аудиторія';
 }
 #calendar .practice{
-    background: white;
+    background: #ececec;
+
 }
 #calendar .lecture,#calendar .practice{
-    border: 1px solid black;
+    border: 1px solid #ccc;
 }
 #calendar .lecture{
-    background: #eee;
+    background: white;
 }
 #calendar .practice .fc-title::after{
     content: ' (Практика)';
