@@ -1,3 +1,7 @@
+cqrs:
+    resource: "@CQRSBundle/Resources/config/routing.xml"
+    prefix:   /
+
 api:
   resource: "@RozkladUniversityBundle/Resources/config/routing.xml"
   type: rest

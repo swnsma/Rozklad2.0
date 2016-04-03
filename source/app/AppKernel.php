@@ -28,6 +28,7 @@ class AppKernel extends Kernel
             new Rozklad\UniversityBundle\RozkladUniversityBundle(),
             new Rozklad\CalendarBundle\RozkladCalendarBundle(),
             new FOS\RestBundle\FOSRestBundle(),
+            new CQRSBundle\CQRSBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'), true)) {
