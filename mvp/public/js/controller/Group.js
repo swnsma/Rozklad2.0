@@ -17,6 +17,7 @@ app.controller("GroupCtrl", function ($scope, $http) {
                 $('#calendar').fullCalendar({
                     weekends: false, // will hide Saturdays and Sundays
                     defaultView: "agendaWeek",
+                    now: '2016-04-01',
                     height: 'auto',
                     slotLabelInterval: 10,
                     slotDuration: '00:30:00',

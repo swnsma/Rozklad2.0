@@ -45,3 +45,7 @@ h1.timetable-title{
 .faculty-select{
     border-bottom: 1px dashed white;
 }
+
+#calendar .fc-today{
+    background-color: rgba(0,172,214,0.5);
+}
