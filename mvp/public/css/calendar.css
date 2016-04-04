@@ -16,7 +16,7 @@
 }
 
 #calendar .practice {
-    background: #283593;
+    background: #1A237E;
 }
 
 #calendar .lecture, #calendar .practice {
@@ -42,7 +42,6 @@
     font-weight: 100;
     color: #111;
     font-size: 0.8em;
-
 }
 
 #calendar .fc-title {
