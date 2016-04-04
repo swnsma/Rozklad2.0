@@ -3,6 +3,7 @@
 namespace Rozklad\CQRSBundle\Domain\Model;
 
 use Broadway\EventSourcing\EventSourcedAggregateRoot;
+use Rozklad\CQRSBundle\Domain\Model\Semester\Event\CreateSemesterEvent;
 
 /**
  * Class Semester
@@ -31,22 +32,23 @@ class Semester extends EventSourcedAggregateRoot
      * @param $id
      * @param $from
      * @param $to
-     */
-    public function __construct($id, $from, $to)
-    {
-        $this->from = $from;
-        $this->to = $to;
-        $this->id = $id;
-    }
-
-    /**
-     * @param $id
-     * @param $from
-     * @param $to
      * @return static
      */
     public static function create($id, $from, $to) {
-        return new static($id, $from, $to);
+        $semester =  new static();
+        $semester->apply(new CreateSemesterEvent($id, $from, $to));
+
+        return $semester;
+    }
+
+    /**
+     * @param CreateSemesterEvent $event
+     */
+    public function applyCreateSemesterEvent(CreateSemesterEvent $event)
+    {
+        $this->id = $event->id;
+        $this->from = $event->from;
+        $this->to = $event->to;
     }
 
     /**

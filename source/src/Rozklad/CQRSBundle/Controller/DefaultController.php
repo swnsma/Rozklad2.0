@@ -1,6 +1,6 @@
 <?php
 
-namespace CQRSBundle\Controller;
+namespace Rozklad\CQRSBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
