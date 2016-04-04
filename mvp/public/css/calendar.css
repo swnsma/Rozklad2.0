@@ -23,6 +23,11 @@
     color: #ccc;
 }
 
+#calendar .auditory{
+    text-decoration: underline;
+    text-decoration-color: black;
+}
+
 #calendar .practice .fc-title {
     color: white;
 }
@@ -67,16 +72,6 @@
     font-weight: 100;
     color: #111;
     font-size: 0.8em;
-}
-
-#calendar .auditory::after {
-    content: '(';
-    font-weight: 100;
-    font-size: 0.6em;
-}
-
-#calendar .fc-time::after {
-    content: ')';
 }
 
 #calendar .fc-title {
