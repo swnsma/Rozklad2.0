@@ -12,6 +12,7 @@
     "admin-lte": "^2.3.3",
     "angular": "^1.5.3",
     "angular-route": "^1.5.3",
+    "angular-router": "0.0.2",
     "font-awesome": "^4.5.0",
     "fullcalendar": "^2.6.1"
   }

@@ -4,16 +4,9 @@
 #calendar tr{
     height: 43px;
 }
-#calendar .teacher{
-    font-weight: bold;
-    color: #eee;
-    font-size: 0.8em;
-    text-align: right;
-}
 #calendar .auditory{
     color: black;
-    font-size: 15px;
-    text-align: right;
+    font-size: 1.5em;
 }
 #calendar .practice{
     background: rgb(50, 100, 200);
@@ -28,7 +21,6 @@
 #calendar .practice .fc-title::after{
     content: ' (Практика)';
     font-size: 0.7em;
-    color: black;
 }
 #calendar .fc-today{
     background-color: rgba(0,172,214,0.2);
@@ -39,10 +31,13 @@
     font-weight: 700;
     color: #000;
 }
-#calendar .fc-time{
-    font-size: 1.2em;
-    color: black;
+#calendar .teacher ,#calendar .fc-time{
+    font-weight: 100;
+    color: #111;
+    font-size: 0.8em;
+
 }
 #calendar .fc-title{
+    font-size: 1.1em;
     color: #eee;
 }

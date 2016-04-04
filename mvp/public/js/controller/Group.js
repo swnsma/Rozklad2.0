@@ -17,7 +17,6 @@ app.controller("GroupCtrl", function ($scope, $http) {
                 $('#calendar').fullCalendar({
                     weekends: false, // will hide Saturdays and Sundays
                     defaultView: "agendaWeek",
-                    now: '2016-04-01',
                     height: 'auto',
                     slotLabelInterval: 10,
                     slotDuration: '00:30:00',
@@ -54,16 +53,17 @@ app.controller("GroupCtrl", function ($scope, $http) {
                         '/mvp/ajaxCall.php?group=' + def
                     ],
                     eventRender: function (event, element) {
-                        if(event.auditory) {
-                            $(element).find('.fc-content').append($('<div class="auditory">').text(event.auditory));
+                        if (event.auditory) {
+                            $(element).find('.fc-time').before($('<div class="auditory">').text(event.auditory));
                         }
-                        $(element).find('.fc-content').append($('<div class="teacher">').text(event.teacher));
-
+                        $(element).find('.fc-title').after($(element).find('.fc-time'));
+                        $(element).find('.fc-time').before($('<div class="teacher">').text(event.teacher));
                         if (event.type === '1') {
                             $(element).addClass('practice');
-                        }else if(event.type === '0'){
+                        } else if (event.type === '0') {
                             $(element).addClass('lecture');
-                        };
+                        }
+                        ;
                     },
                     color: 'yellow',   // an option!
                     textColor: 'black' // an option!
