@@ -12,6 +12,31 @@
     font-weight: bold;
 }
 
+#calendar .practice .auditory,
+#calendar .lecture .auditory {
+    font-size: 2em;
+}
+
+#calendar .practice .fc-time,
+#calendar .practice .auditory,
+#calendar .practice .teacher {
+    color: #ccc;
+}
+
+#calendar .practice .fc-title {
+    color: white;
+}
+
+#calendar .lecture .fc-time,
+#calendar .lecture .auditory,
+#calendar .lecture .teacher {
+    color: #333;
+}
+
+#calendar .lecture .fc-title {
+    color: black;
+}
+
 #calendar .lecture {
     background: #7986CB;
 }
@@ -24,9 +49,8 @@
     border: 1px solid #ccc;
 }
 
-#calendar .practice .fc-title::after {
-    content: ' (Практика)';
-    font-size: 0.7em;
+#calendar .practice .fc-title::before {
+    content: '(Пр) ';
 }
 
 #calendar .fc-today {
@@ -44,15 +68,17 @@
     color: #111;
     font-size: 0.8em;
 }
-#calendar .auditory::after{
+
+#calendar .auditory::after {
     content: '(';
     font-weight: 100;
-    font-size: 0.7em;
+    font-size: 0.6em;
 }
-#calendar .fc-time::after{
+
+#calendar .fc-time::after {
     content: ')';
 }
+
 #calendar .fc-title {
     font-size: 1.1em;
-    color: #eee;
 }

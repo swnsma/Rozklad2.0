@@ -53,14 +53,11 @@ app.controller("GroupCtrl", function ($scope, $http) {
                         '/mvp/ajaxCall.php?group=' + def
                     ],
                     eventRender: function (event, element) {
-                        if (event.auditory) {
-                            $(element).find('.fc-time span').before($('<span class="auditory">').text(event.auditory+ ' '));
-                        }
-                        // $(element).find('.fc-title').after($(element).find('.fc-time'));
+                        $(element).find('.fc-time span').before($('<span class="auditory">').text(event.auditory+ ' '));
                         $(element).find('.fc-content').append($('<div class="teacher">').text(event.teacher));
                         if (event.type === '1') {
                             $(element).addClass('practice');
-                        } else if (event.type === '0') {
+                        } else {
                             $(element).addClass('lecture');
                         }
                         ;
