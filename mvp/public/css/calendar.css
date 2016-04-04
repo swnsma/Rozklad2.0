@@ -1,42 +1,51 @@
-#calendar{
+#calendar {
     margin-top: 30px;
 }
-#calendar tr{
+
+#calendar tr {
     height: 43px;
 }
-#calendar .auditory{
+
+#calendar .auditory {
     color: black;
     font-size: 1.5em;
 }
-#calendar .lecture{
+
+#calendar .lecture {
     background: #7986CB;
 }
-#calendar .practice{
+
+#calendar .practice {
     background: #283593;
 }
-#calendar .lecture,#calendar .practice{
+
+#calendar .lecture, #calendar .practice {
     border: 1px solid #ccc;
 }
-#calendar .practice .fc-title::after{
+
+#calendar .practice .fc-title::after {
     content: ' (Практика)';
     font-size: 0.7em;
 }
-#calendar .fc-today{
-    background-color: rgba(0,172,214,0.2);
+
+#calendar .fc-today {
+    background-color: rgba(0, 172, 214, 0.2);
 }
 
-#calendar .fc-event{
+#calendar .fc-event {
     font-size: 0.9em;
     font-weight: 700;
     color: #000;
 }
-#calendar .teacher ,#calendar .fc-time{
+
+#calendar .teacher, #calendar .fc-time {
     font-weight: 100;
     color: #111;
     font-size: 0.8em;
 
 }
-#calendar .fc-title{
+
+#calendar .fc-title {
     font-size: 1.1em;
     color: #eee;
 }
