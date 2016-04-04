@@ -1,6 +1,6 @@
 <?php
 
-namespace CQRSBundle;
+namespace Rozklad\CQRSBundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 

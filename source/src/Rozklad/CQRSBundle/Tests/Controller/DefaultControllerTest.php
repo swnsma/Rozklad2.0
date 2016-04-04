@@ -1,6 +1,6 @@
 <?php
 
-namespace CQRSBundle\Tests\Controller;
+namespace Rozklad\CQRSBundle\Tests\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 

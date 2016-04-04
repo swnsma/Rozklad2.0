@@ -1,6 +1,6 @@
 <?php
 
-namespace CQRSBundle\DependencyInjection;
+namespace Rozklad\CQRSBundle\DependencyInjection;
 
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\Config\FileLocator;
