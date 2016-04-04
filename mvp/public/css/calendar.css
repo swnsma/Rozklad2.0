@@ -9,6 +9,7 @@
 #calendar .auditory {
     color: black;
     font-size: 1.5em;
+    font-weight: bold;
 }
 
 #calendar .lecture {
@@ -43,7 +44,14 @@
     color: #111;
     font-size: 0.8em;
 }
-
+#calendar .auditory::after{
+    content: '(';
+    font-weight: 100;
+    font-size: 0.7em;
+}
+#calendar .fc-time::after{
+    content: ')';
+}
 #calendar .fc-title {
     font-size: 1.1em;
     color: #eee;
