@@ -10,6 +10,9 @@ body{
     position: relative;
     background: white;
 }
+body .content{
+  overflow-x: scroll;
+}
 h1.timetable-title{
     text-align: center;
     font-family: 'PT Serif','PT Serif1', serif;
