@@ -7,6 +7,7 @@ function Calendar(){
 Calendar.prototype.renderCalendar =  function(group,element) {
     group = group ? group : null;
     $('#calendar').fullCalendar({
+        schedulerLicenseKey: 'GPL-My-Project-Is-Open-Source',
         weekends: false, // will hide Saturdays and Sundays
         defaultView: "agendaWeek",
         height: 'auto',

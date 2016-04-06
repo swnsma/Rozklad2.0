@@ -21,6 +21,10 @@ timetableApp.config(['$routeProvider',
             templateUrl: 'public/partial/group.html',
             controller: 'GroupCtrl'
         }).
+        when('/auditory', {
+            templateUrl: 'public/partial/auditory.html',
+            controller: 'AuditoryCtrl'
+        }). 
         otherwise({
             redirectTo: '/'
         });
