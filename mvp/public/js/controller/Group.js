@@ -46,8 +46,14 @@ app.controller("GroupCtrl", function ($scope, $http) {
                     },
                     timeFormat: 'H:mm',// uppercase H for 24-hour clock
                     axisFormat: 'H:mm',
-                    eventAfterAllRender: function (view) {
-
+                    eventAfterRender: function (event, element, view) {
+                        var $element = $(element);
+                        if($element.css('marginRight') == '20px'){
+                            $element.css({
+                                'marginRight':'-2px',
+                                'width':'50%'
+                            })
+                        }
                     },
                     eventSources: [
                         '/mvp/ajaxCall.php?group=' + def
@@ -77,7 +83,6 @@ app.controller("GroupCtrl", function ($scope, $http) {
         }
         $scope.countClick++;
         $scope.group = group;
-        debugger;
     }
 });
 
