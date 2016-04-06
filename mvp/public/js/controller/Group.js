@@ -5,7 +5,9 @@ var app = angular.module("TimetableApp", ['ngRoute']);
 
 app.controller("GroupCtrl", function ($scope, $http) {
     $http.get('ajaxGroup.php').success(function (data, status, headers, config) {
-        $scope.groups = data;
+
+        data =  data.constructor === Array ? data : [];
+        $scope.groups = data ? data : [];
     }).error(function (data, status, headers, config) {
 
     });

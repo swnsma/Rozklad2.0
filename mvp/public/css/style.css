@@ -11,7 +11,7 @@ body{
     background: white;
 }
 body .content{
-  overflow-x: scroll;
+  overflow-x: auto;
 }
 h1.timetable-title{
     text-align: center;
