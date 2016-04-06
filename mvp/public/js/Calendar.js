@@ -6,7 +6,6 @@ function Calendar(){
 }
 Calendar.prototype.renderCalendar =  function(group,element) {
     group = group ? group : null;
-    debugger;
     $('#calendar').fullCalendar({
         weekends: false, // will hide Saturdays and Sundays
         defaultView: "agendaWeek",

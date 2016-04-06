@@ -25,3 +25,10 @@ timetableApp.config(['$routeProvider',
             redirectTo: '/'
         });
     }]);
+
+timetableApp.directive('groupselect', function () {
+    return {
+        restrict: "E",
+        templateUrl: "public/partial/groupSelect.html"
+    }
+});
