@@ -60,7 +60,7 @@
 }
 
 #calendar .fc-today {
-    background-color: rgba(0, 172, 214, 0.2);
+    background-color: rgba(0, 172, 214, 0.5);
 }
 
 #calendar .fc-event {

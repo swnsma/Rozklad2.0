@@ -55,6 +55,13 @@ app.controller("GroupCtrl", function ($scope, $http) {
                             })
                         }
                     },
+                    eventAfterAllRender: function (view) {
+                        debugger;
+                        
+                        $('th.fc-day-header[data-date="2016-04-06"]').css({
+                            'backgroundColor':'rgba(0, 172, 214, 0.5)'
+                        })
+                    },
                     eventSources: [
                         '/mvp/ajaxCall.php?group=' + def
                     ],
