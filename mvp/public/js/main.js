@@ -29,6 +29,14 @@ timetableApp.config(['$routeProvider',
 timetableApp.directive('groupselect', function () {
     return {
         restrict: "E",
-        templateUrl: "public/partial/groupSelect.html"
+        templateUrl: "public/partial/directive/groupSelect.html",
+        controller: ['$scope','$http', function($scope,$http) {
+            $http.get('ajaxGroup.php').success(function (data, status, headers, config) {
+                data =  data.constructor === Array ? data : [];
+                $scope.groups = data ? data : [];
+            }).error(function (data, status, headers, config) {
+
+            });
+        }],
     }
 });

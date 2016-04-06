@@ -15,18 +15,40 @@
 
     <link rel="stylesheet" href="public/css/style.css"/>
     <link rel="stylesheet" href="public/css/calendar.css">
+    <link rel="stylesheet" href="public/css/adminlte.css">
 
 </head>
 <body ng-app="timetableApp" class="p-profile hold-transition skin-blue sidebar-mini calendar-page">
-<div >
+<div>
     <header class="main-header">
+        <a href="#" class="logo">
+            <span class="logo-mini">
+                <i class="fa fa-calendar"></i>
+                </span>
+            <span class="logo-lg">
+                <i class="fa fa-calendar"></i>
+                Розклад
+            </span>
+        </a>
         <nav class="navbar navbar-static-top">
-            <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+            <div class="sidebar-toggle" data-toggle="offcanvas" role="button">
                 <div class="sticky-menu"></div>
-            </a>
+            </div>
         </nav>
     </header>
-    <div ng-view></div>
+    <aside class="main-sidebar">
+        <section class="sidebar">
+            <div>
+                <groupselect></groupselect>
+            </div>
+        </section>
+    </aside>
+    <div class="content-wrapper ">
+        <section class="content">
+            <div ng-view></div>
+        </section>
+    </div>
+
 </div>
 <script src="node_modules/jquery/dist/jquery.min.js"></script>
 
@@ -40,7 +62,6 @@
 <script src="node_modules/angular-route/angular-route.min.js"></script>
 <script src="public/js/Calendar.js"></script>
 
-<!--<script src="public/js/controller/Group.js"></script>-->
 <script src="public/js/controllers.js"></script>
 <script src='public/js/main.js'></script>
 </body>
