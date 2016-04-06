@@ -18,7 +18,7 @@ app.controller("GroupCtrl", function ($scope, $http) {
             function renderCalendar() {
                 $('#calendar').fullCalendar({
                     weekends: false, // will hide Saturdays and Sundays
-                    defaultView: "agendaDay",
+                    defaultView: "agendaWeek",
                     height: 'auto',
                     slotLabelInterval: 10,
                     slotDuration: '00:30:00',
@@ -58,8 +58,6 @@ app.controller("GroupCtrl", function ($scope, $http) {
                         }
                     },
                     eventAfterAllRender: function (view) {
-                        debugger;
-                        
                         $('th.fc-day-header[data-date="2016-04-06"]').css({
                             'backgroundColor':'rgba(0, 172, 214, 0.5)'
                         })

@@ -1,34 +1,41 @@
-.calendar-container{
+.calendar-container {
     background: white;
     position: relative;
     z-index: 100000;
 }
-.dropdown-menu.inner{
+
+.dropdown-menu.inner {
     position: relative;
 }
-body{
+
+body {
     position: relative;
     background: white;
 }
-body .content{
-  overflow-x: auto;
+
+body .content {
+    overflow-x: auto;
 }
-h1.timetable-title{
+
+h1.timetable-title {
     text-align: center;
-    font-family: 'PT Serif','PT Serif1', serif;
+    font-family: 'PT Serif', serif;
     font-weight: 500;
 }
 
-.calendar-page .content-wrapper{
+.calendar-page .content-wrapper {
     background: white;
 }
-.group-select:first-child{
+
+.group-select:first-child {
     border-top: black 1px solid;
 }
-.group-select{
+
+.group-select {
     border-bottom: black 1px solid;
 }
-.faculty-select{
+
+.faculty-select {
     border-bottom: 1px dashed white;
 }
 
