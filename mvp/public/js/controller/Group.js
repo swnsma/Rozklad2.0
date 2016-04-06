@@ -25,10 +25,8 @@ app.controller("GroupCtrl", function ($scope, $http) {
                     displayEventTime: true,
                     minTime: '08:00:00',
                     maxTime: '14:10:00',
-                    //contentHeight:'auto',
                     fixedWeekCount: false,
                     allDaySlot: false,
-                    //aspectRatio:7,
                     firstDay: 1,
                     header: {
                         left: 'prev,next today ',
@@ -58,8 +56,10 @@ app.controller("GroupCtrl", function ($scope, $http) {
                         }
                     },
                     eventAfterAllRender: function (view) {
-                        $('th.fc-day-header[data-date="2016-04-06"]').css({
-                            'backgroundColor':'rgba(0, 172, 214, 0.5)'
+                        var today = moment().format('YYYY-MM-DD');
+                        debugger;
+                        $('th.fc-day-header[data-date="' + today + '"]').css({
+                            'backgroundColor': $('.fc-today').css('backgroundColor')
                         })
                     },
                     eventSources: [
