@@ -1,9 +1,9 @@
 <?php
 class GroupModel
 {
-    CONST DSN = 'mysql:host=localhost;dbname=test;charset=UTF8';
+    CONST DSN = 'mysql:host=localhost;dbname=mvp_rozklad;charset=UTF8';
     CONST USER = 'root';
-    CONST PASSWORD = 'root';
+    CONST PASSWORD = 'abcABC123';
     private $connection = null;
     public function __construct()
     {

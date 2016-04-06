@@ -17,8 +17,8 @@
     <link rel="stylesheet" href="public/css/calendar.css">
 
 </head>
-<body ng-app="TimetableApp" class="p-profile hold-transition skin-blue sidebar-mini calendar-page">
-<div ng-controller="GroupCtrl">
+<body ng-app="timetableApp" class="p-profile hold-transition skin-blue sidebar-mini calendar-page">
+<div >
     <header class="main-header">
         <nav class="navbar navbar-static-top">
             <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
@@ -26,19 +26,7 @@
             </a>
         </nav>
     </header>
-    <aside class="main-sidebar">
-        <section class="sidebar">
-            <div>
-                <groupselect></groupselect>
-            </div>
-        </section>
-    </aside>
-    <div class="content-wrapper ">
-        <section class="content">
-            <h1 class="h1 timetable-title">Розклад ЖДТУ ({{group}})</h1>
-            <div id="calendar"></div>
-        </section>
-    </div>
+    <div ng-view></div>
 </div>
 <script src="node_modules/jquery/dist/jquery.min.js"></script>
 
@@ -50,9 +38,10 @@
 
 <script src="node_modules/angular/angular.js"></script>
 <script src="node_modules/angular-route/angular-route.min.js"></script>
+<script src="public/js/Calendar.js"></script>
 
-<script src="public/js/controller/Group.js"></script>
-
+<!--<script src="public/js/controller/Group.js"></script>-->
+<script src="public/js/controllers.js"></script>
 <script src='public/js/main.js'></script>
 </body>
 </html>
