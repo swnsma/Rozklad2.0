@@ -42,8 +42,8 @@ Calendar.prototype.renderCalendar = function (group, element) {
             if(view.name==='agendaWeek') {
                 function addClass($element) {
                     $element.addClass('pair');
+                    $element.addClass('date-' +event.start._i.replace(' ','-'));
                 }
-
                 var $element = $(element);
                 if ($element.css('marginRight') === '20px') {
                     addClass($element);
@@ -67,18 +67,22 @@ Calendar.prototype.renderCalendar = function (group, element) {
                 var $prev = $self.prev();
                 var $next = $self.next();
                 var zIndex = _.max([+$prev.css('z-index'), +$next.css('z-index')]);
-                $prev.css({
-                    'margin-bottom': '0px'
-                });
-                $next.css({
-                    'margin-bottom': '0px'
-                });
                 $.each(classList, function (index, item) {
                     if (item === 'pair') {
                         $self.css({
                             'z-index': zIndex + 1,
                             'margin-bottom': '10px'
-                        })
+                        });
+                        if($prev.attr('class') && classList[index+1]===$prev.attr('class').split(/\s+/)[index+1]) {
+                            $prev.css({
+                                'margin-bottom': '0px'
+                            });
+                        }
+                        if($next.attr('class') && classList[index+1]===$next.attr('class').split(/\s+/)[index+1]) {
+                            $next.css({
+                                'margin-bottom': '0px'
+                            });
+                        }
                     }
                 });
             }
