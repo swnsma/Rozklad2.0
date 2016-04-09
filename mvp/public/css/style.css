@@ -39,3 +39,6 @@ h1.timetable-title {
     border-bottom: 1px dashed white;
 }
 
+#calendar .pair{
+    cursor: pointer;
+}

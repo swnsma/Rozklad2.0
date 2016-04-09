@@ -39,24 +39,59 @@ Calendar.prototype.renderCalendar = function (group, element) {
         timeFormat: 'H:mm',// uppercase H for 24-hour clock
         axisFormat: 'H:mm',
         eventAfterRender: function (event, element, view) {
-            var $element = $(element);
-            if ($element.css('marginRight') == '20px') {
-                $element.css({
-                    'marginRight': '-2px',
-                    'width': '50%'
-                })
+            if(view.name==='agendaWeek') {
+                function addClass($element) {
+                    $element.addClass('pair');
+                }
+
+                var $element = $(element);
+                if ($element.css('marginRight') === '20px') {
+                    addClass($element);
+                    $element.css({
+                        'z-index': '3',
+                        'margin-bottom': '10px'
+                    });
+                }
+                if ($element.css('left') !== '0px') {
+                    addClass($element);
+                    $element.css({
+                        'left': '20%'
+                    });
+                }
+            }
+        },
+        eventClick: function(calEvent, jsEvent, view) {
+            if(view.name==='agendaWeek') {
+                var $self = $(this);
+                var classList = $self.attr('class').split(/\s+/);
+                var $prev = $self.prev();
+                var $next = $self.next();
+                var zIndex = _.max([+$prev.css('z-index'), +$next.css('z-index')]);
+                $prev.css({
+                    'margin-bottom': '0px'
+                });
+                $next.css({
+                    'margin-bottom': '0px'
+                });
+                $.each(classList, function (index, item) {
+                    if (item === 'pair') {
+                        $self.css({
+                            'z-index': zIndex + 1,
+                            'margin-bottom': '10px'
+                        })
+                    }
+                });
             }
         },
         eventAfterAllRender: function (view) {
-            var $element = $('#calendar');
             if (view.name === "agendaDay") {
-                var minute = $element.fullCalendar('getDate').format('mm');
+                var minute = moment().format('mm');
                 minute = (minute < 30) ? '00' : '30';
-                var hour = $element.fullCalendar('getDate').format('HH') + ':' + minute + ':00';
+                var hour = moment().format('HH') + ':' + minute + ':00';
                 $('.fc-slats tr[data-time="' + hour + '"]').addClass('now')
             }
             if (view.name === "agendaWeek") {
-                var today = $('#calendar').fullCalendar('getDate').format('YYYY-MM-DD');
+                var today = moment().format('YYYY-MM-DD');
                 $('th.fc-day-header[data-date="' + today + '"]').addClass('now');
             }
         },
