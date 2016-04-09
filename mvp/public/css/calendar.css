@@ -59,7 +59,7 @@
     content: '(Пр) ';
 }
 
-#calendar .fc-today {
+#calendar .fc-today ,#calendar .now{
     background-color: rgba(0, 172, 214, 0.5);
 }
 
@@ -81,4 +81,7 @@
 
 #calendar .fc-title {
     font-size: 1.1em;
+}
+#calendar .fc-agendaDay-view .fc-today {
+    background: none;
 }

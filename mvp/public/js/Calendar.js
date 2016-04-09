@@ -48,10 +48,14 @@ Calendar.prototype.renderCalendar = function (group, element) {
             }
         },
         eventAfterAllRender: function (view) {
-            var today = moment().format('YYYY-MM-DD');
-            $('th.fc-day-header[data-date="' + today + '"]').css({
-                'backgroundColor': $('.fc-today').css('backgroundColor')
-            })
+            if(view.name === "agendaDay"){
+                var hour = moment().format("HH") + ':00:00';
+                $('.fc-slats tr[data-time="' + hour + '"]').addClass('now')
+            }
+            if(view.name === "agendaWeek") {
+                var today = moment().format('YYYY-MM-DD');
+                $('th.fc-day-header[data-date="' + today + '"]').addClass('now');
+            }
         },
         eventSources: [
             '/mvp/ajaxCall.php?group=' + group
