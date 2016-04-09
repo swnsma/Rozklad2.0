@@ -50,13 +50,13 @@ Calendar.prototype.renderCalendar = function (group, element) {
         },
         eventAfterAllRender: function (view) {
             var $element = $('#calendar');
-            if(view.name === "agendaDay"){
+            if (view.name === "agendaDay") {
                 var minute = $element.fullCalendar('getDate').format('mm');
                 minute = (minute < 30) ? '00' : '30';
-                var hour = $element.fullCalendar('getDate').format('HH')+ ':' + minute + ':00';
+                var hour = $element.fullCalendar('getDate').format('HH') + ':' + minute + ':00';
                 $('.fc-slats tr[data-time="' + hour + '"]').addClass('now')
             }
-            if(view.name === "agendaWeek") {
+            if (view.name === "agendaWeek") {
                 var today = $('#calendar').fullCalendar('getDate').format('YYYY-MM-DD');
                 $('th.fc-day-header[data-date="' + today + '"]').addClass('now');
             }

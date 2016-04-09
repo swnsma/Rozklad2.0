@@ -24,7 +24,7 @@
     color: #ccc;
 }
 
-#calendar .auditory{
+#calendar .auditory {
     text-decoration: underline;
     text-decoration-color: black;
 }
@@ -59,7 +59,7 @@
     content: '(Пр) ';
 }
 
-#calendar .fc-today ,#calendar .now{
+#calendar .fc-today, #calendar .now {
     background-color: rgba(0, 172, 214, 0.5);
 }
 
@@ -74,7 +74,8 @@
     font-weight: 100;
     color: #111;
 }
-#calendar .fc-event-container .fc-time span:not(.auditory){
+
+#calendar .fc-event-container .fc-time span:not(.auditory) {
     font-size: 1.7em;
     float: right;
 }
@@ -82,6 +83,7 @@
 #calendar .fc-title {
     font-size: 1.1em;
 }
+
 #calendar .fc-agendaDay-view .fc-today {
     background: none;
 }
