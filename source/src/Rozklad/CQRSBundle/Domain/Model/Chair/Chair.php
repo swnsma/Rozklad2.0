@@ -21,10 +21,6 @@ class Chair extends EventSourcedAggregateRoot
      */
     private $title;
 
-    private $teachers = [];
-    private $subjects = [];
-
-
     /**
      * @param $id
      * @param $title
