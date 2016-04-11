@@ -34,12 +34,12 @@
 }
 
 #calendar .lecture .fc-time,
-#calendar .lecture .auditory,
 #calendar .lecture .teacher {
     color: #333;
 }
 
-#calendar .lecture .fc-title {
+#calendar .lecture .fc-title,
+#calendar .lecture .auditory{
     color: black;
 }
 
@@ -70,7 +70,7 @@
     padding: 3px;
 }
 
-#calendar .teacher, #calendar .fc-time {
+#calendar .teacher, #calendar .fc-time{
     font-weight: 100;
     color: #111;
 }
