@@ -74,18 +74,10 @@ Calendar.prototype.renderCalendar = function (group, element) {
                             'z-index': zIndex + 1
                         });
                         if ($prev.attr('class') && classList[index + 1] === $prev.attr('class').split(/\s+/)[index + 1]) {
-                            $prev.find('.fc-content').css({
-                                'display': 'none'
-                            });
-                            $($prev.append($prev.find('.fc-content .auditory').css({
-                                'position': 'absolute',
-                                'left': 2,
-                                'top': 2
-                            })));
                             $self.find('.fc-content').css({
                                 'display': 'block'
                             });
-                            $self.find('.fc-content .fc-time').append($self.find('.auditory'));
+                            $self.find('.fc-content .fc-time span').before($self.find('.auditory'));
                             $self.find('.auditory').css({
                                 'position': 'static'
                             });
@@ -99,14 +91,6 @@ Calendar.prototype.renderCalendar = function (group, element) {
                                 'right': 2,
                                 'top': 2
                             })))
-
-                            $self.find('.fc-content').css({
-                                'display': 'block'
-                            });
-                            $self.find('.fc-content .fc-time').append($self.find('.auditory'));
-                            $self.find('.auditory').css({
-                                'position': 'static'
-                            });
                         }
                     }
                 });
