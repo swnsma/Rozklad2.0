@@ -21,8 +21,6 @@ class Faculty extends EventSourcedAggregateRoot
      */
     private $title;
 
-    private $groups = [];
-
     /**
      * @param $id
      * @param $title

@@ -26,8 +26,6 @@ class Semester extends EventSourcedAggregateRoot
      */
     private $to;
 
-    private $lessons = [];
-
     /**
      * @param $id
      * @param $from
