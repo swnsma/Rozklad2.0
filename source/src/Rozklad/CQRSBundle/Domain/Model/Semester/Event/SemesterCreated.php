@@ -6,22 +6,17 @@ namespace Rozklad\CQRSBundle\Domain\Model\Semester\Event;
  * Class SemesterCreated
  * @package Rozklad\CQRSBundle\Domain\Model\Semester\Event
  */
-class SemesterCreated
+class SemesterCreated extends SemesterEvent
 {
     /**
-     * @var string
+     * @var \DateTime
      */
-    public $id;
+    private $from;
 
     /**
      * @var \DateTime
      */
-    public $from;
-
-    /**
-     * @var \DateTime
-     */
-    public $to;
+    private $to;
 
     /**
      * CreateSemesterEvent constructor.
@@ -32,8 +27,32 @@ class SemesterCreated
      */
     public function __construct($id, $from, $to)
     {
-        $this->id = $id;
         $this->from = $from;
         $this->to = $to;
+        parent::__construct($id);
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getFromDate()
+    {
+        return $this->from;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getToDate()
+    {
+        return $this->to;
+    }
+
+    /**
+     * @return mixed The object instance
+     */
+    public static function deserialize(array $data)
+    {
+        return new static($data['id'], $data['from'], $data['to']);
     }
 }

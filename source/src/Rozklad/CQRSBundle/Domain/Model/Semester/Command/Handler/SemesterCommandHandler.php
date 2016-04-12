@@ -15,19 +15,19 @@ class SemesterCommandHandler extends CommandHandler
     /**
      * @var SemesterRepository
      */
-    private $semesterRepository;
+    private $repository;
 
     /**
      * @param SemesterRepository $repository
      */
     public function __construct(SemesterRepository $repository)
     {
-        $this->semesterRepository = $repository;
+        $this->$repository = $repository;
     }
 
     public function handleCreateSemester(Semester\Command\CreateSemester$command)
     {
-        $semester = Semester::create($command->id, $command->from, $command->to);
-        $this->semesterRepository->save($semester);
+        $semester = Semester::create($command->getId(), $command->getFromDate(), $command->getToDate());
+        $this->repository->save($semester);
     }
 }

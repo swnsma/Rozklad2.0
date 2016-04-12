@@ -42,11 +42,11 @@ class Semester extends EventSourcedAggregateRoot
     /**
      * @param SemesterCreated $event
      */
-    public function applyCreateSemesterEvent(SemesterCreated $event)
+    public function applySemesterCreated(SemesterCreated $event)
     {
-        $this->id = $event->id;
-        $this->from = $event->from;
-        $this->to = $event->to;
+        $this->id = $event->getId();
+        $this->from = $event->getFromDate();
+        $this->to = $event->getToDate();
     }
 
     /**

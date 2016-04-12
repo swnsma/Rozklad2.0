@@ -6,22 +6,17 @@ namespace Rozklad\CQRSBundle\Domain\Model\Semester\Command;
  * Class CreateSemester
  * @package Rozklad\CQRSBundle\Domain\Model\Semester\Command
  */
-class CreateSemester
+class CreateSemester extends SemesterCommand
 {
     /**
-     * @var string
+     * @var \DateTime
      */
-    public $id;
+    private $from;
 
     /**
      * @var \DateTime
      */
-    public $from;
-
-    /**
-     * @var \DateTime
-     */
-    public $to;
+    private $to;
 
     /**
      * @param $id
@@ -30,8 +25,25 @@ class CreateSemester
      */
     public function __construct($id, $from, $to)
     {
-        $this->id = $id;
         $this->from = $from;
         $this->to = $to;
+
+        parent::__construct($id);
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getFromDate()
+    {
+        return $this->from;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getToDate()
+    {
+        return $this->to;
     }
 }
