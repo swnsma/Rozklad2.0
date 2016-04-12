@@ -3,11 +3,11 @@
 namespace Rozklad\CQRSBundle\Domain\Model\Teacher\Command\Handler;
 
 use Broadway\CommandHandling\CommandHandler;
-use Rozklad\CQRSBundle\Domain\Model\Teacher\Command\BecomeOutOfService;
+use Rozklad\CQRSBundle\Domain\Model\Teacher\Command\BecomeTeacherOutOfService;
 use Rozklad\CQRSBundle\Domain\Model\Teacher\Command\ChangeChair;
-use Rozklad\CQRSBundle\Domain\Model\Teacher\Command\ChangeName;
+use Rozklad\CQRSBundle\Domain\Model\Teacher\Command\ChangeTeacherName;
 use Rozklad\CQRSBundle\Domain\Model\Teacher\Command\CreateTeacher;
-use Rozklad\CQRSBundle\Domain\Model\Teacher\Command\ReturnToService;
+use Rozklad\CQRSBundle\Domain\Model\Teacher\Command\ReturnTeacherToService;
 use Rozklad\CQRSBundle\Domain\Model\Teacher\Teacher;
 use Rozklad\CQRSBundle\Domain\Model\Teacher\TeacherRepository;
 
@@ -57,9 +57,9 @@ class TeacherCommandHandler extends CommandHandler
     }
 
     /**
-     * @param BecomeOutOfService $command
+     * @param BecomeTeacherOutOfService $command
      */
-    public function handleBecomeOutOfService(BecomeOutOfService $command)
+    public function handleBecomeOutOfService(BecomeTeacherOutOfService $command)
     {
         /** @var \Rozklad\CQRSBundle\Domain\Model\Teacher\Teacher $teacher */
         $teacher = $this->repository->load($command->getId());
@@ -68,9 +68,9 @@ class TeacherCommandHandler extends CommandHandler
     }
 
     /**
-     * @param ChangeName $command
+     * @param ChangeTeacherName $command
      */
-    public function handleChangeName(ChangeName $command)
+    public function handleChangeName(ChangeTeacherName $command)
     {
         /** @var \Rozklad\CQRSBundle\Domain\Model\Teacher\Teacher $teacher */
         $teacher = $this->repository->load($command->getId());
@@ -79,9 +79,9 @@ class TeacherCommandHandler extends CommandHandler
     }
 
     /**
-     * @param ReturnToService $command
+     * @param ReturnTeacherToService $command
      */
-    public function handleReturnToService(ReturnToService $command)
+    public function handleReturnToService(ReturnTeacherToService $command)
     {
         /** @var \Rozklad\CQRSBundle\Domain\Model\Teacher\Teacher $teacher */
         $teacher = $this->repository->load($command->getId());

@@ -33,7 +33,7 @@ class ChairCommandHandler extends CommandHandler
         $this->repository->save($chair);
     }
 
-    public function handleChangeTitle(Chair\Command\ChangeTitle $command)
+    public function handleChangeChairTitle(Chair\Command\ChangeChairTitle $command)
     {
         /** @var Chair $chair */
         $chair = $this->repository->load($command->getId());

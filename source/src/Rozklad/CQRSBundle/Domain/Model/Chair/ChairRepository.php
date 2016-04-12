@@ -19,9 +19,10 @@ class ChairRepository extends EventSourcingRepository
      */
     public function __constructor(
         EventStoreInterface $eventStore,
-        EventBusInterface $eventBus
+        EventBusInterface $eventBus,
+        $eventStreamDecorators
     )
     {
-        parent::__construct($eventStore, $eventBus, Chair::class, new PublicConstructorAggregateFactory());
+        parent::__construct($eventStore, $eventBus, Chair::class, new PublicConstructorAggregateFactory(), $eventStreamDecorators);
     }
 }

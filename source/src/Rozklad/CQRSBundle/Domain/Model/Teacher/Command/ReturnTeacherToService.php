@@ -3,10 +3,10 @@
 namespace Rozklad\CQRSBundle\Domain\Model\Teacher\Command;
 
 /**
- * Class ReturnToService
+ * Class ReturnTeacherToService
  * @package Rozklad\CQRSBundle\Domain\Model\Teacher\Command
  */
-class ReturnToSevice extends TeacherCommand
+class ReturnTeacherToService extends TeacherCommand
 {
 
 }

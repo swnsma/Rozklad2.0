@@ -3,10 +3,10 @@
 namespace Rozklad\CQRSBundle\Domain\Model\Teacher\Command;
 
 /**
- * Class BecomeOutOfService
+ * Class BecomeTeacherOutOfService
  * @package Rozklad\CQRSBundle\Domain\Model\Teacher\Command
  */
-class BecomeOutOfService extends TeacherCommand
+class BecomeTeacherOutOfService extends TeacherCommand
 {
 
 }

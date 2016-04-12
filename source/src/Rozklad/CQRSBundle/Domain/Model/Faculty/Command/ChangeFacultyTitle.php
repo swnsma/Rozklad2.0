@@ -3,10 +3,10 @@
 namespace Rozklad\CQRSBundle\Domain\Model\Faculty\Command;
 
 /**
- * Class ChangeTitle
+ * Class ChangeFacultyTitle
  * @package Rozklad\CQRSBundle\Domain\Model\Semester\Command
  */
-class ChangeTitle extends FacultyCommand
+class ChangeFacultyTitle extends FacultyCommand
 {
     /**
      * @var string

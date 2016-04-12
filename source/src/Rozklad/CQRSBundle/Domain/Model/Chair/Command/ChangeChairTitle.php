@@ -3,10 +3,10 @@
 namespace Rozklad\CQRSBundle\Domain\Model\Chair\Command;
 
 /**
- * Class ChangeTitle
+ * Class ChangeChairTitle
  * @package Rozklad\CQRSBundle\Domain\Model\Chair\Command
  */
-class ChangeTitle extends ChairCommand
+class ChangeChairTitle extends ChairCommand
 {
     /**
      * @var string

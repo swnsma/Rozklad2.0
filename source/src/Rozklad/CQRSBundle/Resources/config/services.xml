@@ -4,9 +4,23 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
     <services>
+        <!--Group -->
+        <service id="rozklad.domain.group.command_handler" class="Rozklad\CQRSBundle\Domain\Model\Group\Command\Handler\GroupCommandHandler">
+            <argument type="service" id="rozklad.domain.group.repository"/>
+            <tag name="command_handler"/>
+        </service>
+        <service id="rozklad.domain.group.repository" class="Rozklad\CQRSBundle\Domain\Model\Group\GroupRepository">
+            <argument type="service" id="broadway.event_store" />
+            <argument type="service" id="broadway.event_handling.event_bus" />
+            <argument type="collection">
+                <argument type="service" id="broadway.metadata_enriching_event_stream_decorator" />
+            </argument>
+        </service>
+
         <!--Teacher -->
         <service id="rozklad.domain.teacher.command_handler" class="Rozklad\CQRSBundle\Domain\Model\Teacher\Command\Handler\TeacherCommandHandler">
             <argument type="service" id="rozklad.domain.teacher.repository"/>
+            <tag name="command_handler"/>
         </service>
         <service id="rozklad.domain.teacher.repository" class="Rozlkad\CQRSBundle\Domain\Model\TeacherRepository">
             <argument type="service" id="broadway.event_store" />
@@ -19,6 +33,7 @@
         <!--Chair -->
         <service id="rozklad.domain.chair.command_handler" class="Rozklad\CQRSBundle\Domain\Model\Chair\Command\Handler\ChairCommandHandler">
             <argument type="service" id="rozklad.domain.chair.repository"/>
+            <tag name="command_handler"/>
         </service>
         <service id="rozklad.domain.chair.repository" class="Rozklad\CQRSBundle\Domain\Model\Chair\ChairRepository">
             <argument type="service" id="broadway.event_store" />
@@ -31,6 +46,7 @@
         <!--Semester -->
         <service id="rozklad.domain.semester.command_handler" class="Rozklad\CQRSBundle\Domain\Model\Semester\Command\Handler\SemesterCommandHandler">
             <argument type="service" id="rozklad.domain.semester.repository"/>
+            <tag name="command_handler"/>
         </service>
         <service id="rozklad.domain.semester.repository" class="Rozklad\CQRSBundle\Domain\Model\Semester\SemesterRepository">
             <argument type="service" id="broadway.event_store" />
@@ -43,6 +59,7 @@
         <!--Faculty -->
         <service id="rozklad.domain.faculty.command_handler" class="Rozklad\CQRSBundle\Domain\Model\Faculty\Command\Handler\FacultyCommandHandler">
             <argument type="service" id="rozklad.domain.faculty.repository"/>
+            <tag name="command_handler"/>
         </service>
         <service id="rozklad.domain.faculty.repository" class="Rozklad\CQRSBundle\Domain\Model\Faculty\FacultyRepository">
             <argument type="service" id="broadway.event_store" />

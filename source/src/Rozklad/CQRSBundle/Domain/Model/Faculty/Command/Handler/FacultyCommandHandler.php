@@ -31,14 +31,14 @@ class FacultyCommandHandler extends CommandHandler
      */
     public function handleCreateFaculty(CreateFaculty $command)
     {
-        $semester = Faculty::create($command->getId(), $command->getTitle());
-        $this->repository->save($semester);
+        $faculty = Faculty::create($command->getId(), $command->getTitle());
+        $this->repository->save($faculty);
     }
 
     /**
-     * @param Faculty\Command\ChangeTitle $command
+     * @param Faculty\Command\ChangeFacultyTitle $command
      */
-    public function handleChangeTitle(Faculty\Command\ChangeTitle $command)
+    public function handleChangeFacultyTitle(Faculty\Command\ChangeFacultyTitle $command)
     {
         /** @var Faculty $faculty */
         $faculty = $this->repository->load($command->getId());
