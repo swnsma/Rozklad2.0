@@ -2,8 +2,6 @@
 
 namespace Rozklad\UniversityBundle\Entity;
 
-use Doctrine\ORM\Mapping as ORM;
-
 /**
  * Subject
  */
@@ -19,11 +17,10 @@ class Subject
      */
     private $title;
 
-
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -33,7 +30,7 @@ class Subject
     /**
      * Set title
      *
-     * @param string $title
+     * @param  string  $title
      * @return Subject
      */
     public function setTitle($title)
@@ -46,7 +43,7 @@ class Subject
     /**
      * Get title
      *
-     * @return string 
+     * @return string
      */
     public function getTitle()
     {

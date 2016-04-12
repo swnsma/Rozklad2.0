@@ -2,8 +2,6 @@
 
 namespace Rozklad\UniversityBundle\Entity;
 
-use Doctrine\ORM\Mapping as ORM;
-
 /**
  * Groups
  */
@@ -19,7 +17,6 @@ class Group
      */
     private $name;
 
-
     /**
      * Get id
      *
@@ -33,7 +30,7 @@ class Group
     /**
      * Set name
      *
-     * @param string $name
+     * @param  string $name
      * @return Groups
      */
     public function setName($name)
@@ -58,11 +55,10 @@ class Group
      */
     private $specialty;
 
-
     /**
      * Set specialty
      *
-     * @param \Rozklad\UniversityBundle\Entity\Specialty $specialty
+     * @param  \Rozklad\UniversityBundle\Entity\Specialty $specialty
      * @return Groups
      */
     public function setSpecialty(\Rozklad\UniversityBundle\Entity\Specialty $specialty = null)

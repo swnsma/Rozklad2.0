@@ -15,7 +15,7 @@ class SemesterRepository extends EventSourcingRepository
 {
     /**
      * @param EventStoreInterface $eventStore
-     * @param EventBusInterface $eventBus
+     * @param EventBusInterface   $eventBus
      */
     public function __constructor(
         EventStoreInterface $eventStore,

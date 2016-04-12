@@ -2,8 +2,6 @@
 
 namespace Rozklad\UniversityBundle\Entity;
 
-use Doctrine\ORM\Mapping as ORM;
-
 /**
  * Auditory
  */
@@ -19,11 +17,10 @@ class Auditory
      */
     private $number;
 
-
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -33,7 +30,7 @@ class Auditory
     /**
      * Set number
      *
-     * @param string $number
+     * @param  string   $number
      * @return Auditory
      */
     public function setNumber($number)
@@ -46,7 +43,7 @@ class Auditory
     /**
      * Get number
      *
-     * @return string 
+     * @return string
      */
     public function getNumber()
     {

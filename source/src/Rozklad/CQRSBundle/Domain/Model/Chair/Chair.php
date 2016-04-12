@@ -31,6 +31,7 @@ class Chair extends EventSourcedAggregateRoot
     {
         $chair = new static();
         $chair->apply(new ChairCreated($id, $title));
+
         return $chair;
     }
 

@@ -32,7 +32,8 @@ class Semester extends EventSourcedAggregateRoot
      * @param $to
      * @return static
      */
-    public static function create($id, $from, $to) {
+    public static function create($id, $from, $to)
+    {
         $semester =  new static();
         $semester->apply(new SemesterCreated($id, $from, $to));
 

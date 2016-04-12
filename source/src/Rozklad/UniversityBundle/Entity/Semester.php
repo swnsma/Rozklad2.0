@@ -2,8 +2,6 @@
 
 namespace Rozklad\UniversityBundle\Entity;
 
-use Doctrine\ORM\Mapping as ORM;
-
 /**
  * Semester
  */
@@ -30,11 +28,10 @@ class Semester
      */
     private $id;
 
-
     /**
      * Set number
      *
-     * @param string $number
+     * @param  string   $number
      * @return Semester
      */
     public function setNumber($number)
@@ -47,7 +44,7 @@ class Semester
     /**
      * Get number
      *
-     * @return string 
+     * @return string
      */
     public function getNumber()
     {
@@ -57,7 +54,7 @@ class Semester
     /**
      * Set from
      *
-     * @param \DateTime $from
+     * @param  \DateTime $from
      * @return Semester
      */
     public function setFrom($from)
@@ -70,7 +67,7 @@ class Semester
     /**
      * Get from
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
     public function getFrom()
     {
@@ -80,7 +77,7 @@ class Semester
     /**
      * Set to
      *
-     * @param \DateTime $to
+     * @param  \DateTime $to
      * @return Semester
      */
     public function setTo($to)
@@ -93,7 +90,7 @@ class Semester
     /**
      * Get to
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
     public function getTo()
     {
@@ -103,7 +100,7 @@ class Semester
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -114,11 +111,10 @@ class Semester
      */
     private $isActive;
 
-
     /**
      * Set isActive
      *
-     * @param boolean $isActive
+     * @param  boolean  $isActive
      * @return Semester
      */
     public function setIsActive($isActive)
@@ -131,7 +127,7 @@ class Semester
     /**
      * Get isActive
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getIsActive()
     {
