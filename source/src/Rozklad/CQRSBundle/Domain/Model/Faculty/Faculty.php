@@ -3,6 +3,7 @@
 namespace Rozklad\CQRSBundle\Domain\Model;
 
 use Broadway\EventSourcing\EventSourcedAggregateRoot;
+use Rozklad\CQRSBundle\Domain\Model\Faculty\Event\FacultyChangedTitle;
 use Rozklad\CQRSBundle\Domain\Model\Faculty\Event\FacultyCreated;
 
 /**
@@ -36,6 +37,18 @@ class Faculty extends EventSourcedAggregateRoot
     }
 
     /**
+     * @param $title string
+     */
+    public function changeTitle($title)
+    {
+        if ($this->title == $title) {
+            return;
+        }
+
+        $this->apply(new FacultyChangedTitle($this->id, $title));
+    }
+
+    /**
      * @return string
      */
     public function getAggregateRootId()
@@ -46,10 +59,18 @@ class Faculty extends EventSourcedAggregateRoot
     /**
      * @param FacultyCreated $event
      */
-    public function applyCreateFacultyEvent(FacultyCreated $event)
+    public function applyFacultyCreated(FacultyCreated $event)
     {
-        $this->id = $event->id;
-        $this->title = $event->title;
+        $this->id = $event->getId();
+        $this->title = $event->getTitle();
+    }
+
+    /**
+     * @param FacultyChangedTitle $event
+     */
+    public function applyFacultyChangedTitle(FacultyChangedTitle $event)
+    {
+        $this->title = $event->getTitle();
     }
 
 }

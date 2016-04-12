@@ -16,19 +16,33 @@ class FacultyCommandHandler extends CommandHandler
     /**
      * @var FacultyRepository
      */
-    private $semesterRepository;
+    private $repository;
 
     /**
      * @param FacultyRepository $repository
      */
     public function __construct(FacultyRepository $repository)
     {
-        $this->semesterRepository = $repository;
+        $this->repository = $repository;
     }
 
-    public function handleCreateSemester(CreateFaculty $command)
+    /**
+     * @param CreateFaculty $command
+     */
+    public function handleCreateFaculty(CreateFaculty $command)
     {
-        $semester = Faculty::create($command->id, $command->title);
-        $this->semesterRepository->save($semester);
+        $semester = Faculty::create($command->getId(), $command->getTitle());
+        $this->repository->save($semester);
+    }
+
+    /**
+     * @param Faculty\Command\ChangeTitle $command
+     */
+    public function handleChangeTitle(Faculty\Command\ChangeTitle $command)
+    {
+        /** @var Faculty $faculty */
+        $faculty = $this->repository->load($command->getId());
+        $faculty->changeTitle($command->getTitle());
+        $this->repository->save($faculty);
     }
 }
