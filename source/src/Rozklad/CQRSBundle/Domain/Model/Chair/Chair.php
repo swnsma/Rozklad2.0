@@ -3,6 +3,7 @@
 namespace Rozklad\CQRSBundle\Domain\Model;
 
 use Broadway\EventSourcing\EventSourcedAggregateRoot;
+use Rozklad\CQRSBundle\Domain\Model\Chair\Event\ChairChangedTitle;
 use Rozklad\CQRSBundle\Domain\Model\Chair\Event\ChairCreated;
 
 /**
@@ -33,14 +34,33 @@ class Chair extends EventSourcedAggregateRoot
         return $chair;
     }
 
+    /**
+     * @param $title
+     */
+    public function changeTitle($title)
+    {
+        if ($this->title == $title) {
+            return;
+        }
+
+        $this->apply(new ChairChangedTitle($this->id, $title));
+    }
 
     /**
      * @param ChairCreated $event
      */
-    public function applyCreateChairEvent(ChairCreated $event)
+    public function applyChairCreated(ChairCreated $event)
     {
-        $this->id = $event->id;
-        $this->title = $event->title;
+        $this->id = $event->getId();
+        $this->title = $event->getTitle();
+    }
+
+    /**
+     * @param ChairChangedTitle $event
+     */
+    public function applyChairChangedTitle(ChairChangedTitle $event)
+    {
+        $this->title = $event->getTitle();
     }
 
     /**

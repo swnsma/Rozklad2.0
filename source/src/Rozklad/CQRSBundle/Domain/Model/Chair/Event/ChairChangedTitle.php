@@ -3,10 +3,10 @@
 namespace Rozklad\CQRSBundle\Domain\Model\Chair\Event;
 
 /**
- * Class ChairCreated
+ * Class ChairChangedTitle
  * @package Rozklad\CQRSBundle\Domain\Model\Chair\Event
  */
-class ChairCreated extends ChairEvent
+class ChairChangedTitle extends ChairEvent
 {
     /**
      * @var string
@@ -14,7 +14,7 @@ class ChairCreated extends ChairEvent
     private $title;
 
     /**
-     * CreateChairEvent constructor.
+     * ChairChangedTitle constructor.
      *
      * @param $id
      * @param $title
@@ -34,7 +34,7 @@ class ChairCreated extends ChairEvent
     }
 
     /**
-     * {@inheritdoc}
+     * @return array
      */
     public function serialize()
     {
@@ -44,7 +44,7 @@ class ChairCreated extends ChairEvent
     }
 
     /**
-     * {@inheritdoc}
+     * @return mixed The object instance
      */
     public static function deserialize(array $data)
     {
