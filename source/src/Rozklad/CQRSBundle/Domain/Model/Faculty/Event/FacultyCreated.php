@@ -3,10 +3,10 @@
 namespace Rozklad\CQRSBundle\Domain\Model\Faculty\Event;
 
 /**
- * Class CreateFacultyEvent
+ * Class FacultyCreated
  * @package Rozklad\CQRSBundle\Domain\Model\Faculty\Event
  */
-class CreateFacultyEvent
+class FacultyCreated
 {
     /**
      * @var string

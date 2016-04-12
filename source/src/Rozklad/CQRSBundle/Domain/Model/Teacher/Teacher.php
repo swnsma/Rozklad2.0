@@ -3,7 +3,7 @@
 namespace Rozklad\CQRSBundle\Domain\Model\Teacher;
 
 use Broadway\EventSourcing\EventSourcedAggregateRoot;
-use Rozklad\CQRSBundle\Domain\Model\Teacher\Event\CreateTeacherEvent;
+use Rozklad\CQRSBundle\Domain\Model\Teacher\Event\TeacherCreated;
 
 /**
  * Class Teacher
@@ -50,7 +50,7 @@ class Teacher extends EventSourcedAggregateRoot
     {
         $teacher = new static();
         $teacher->apply(
-            new CreateTeacherEvent($id, $name, $chairId, $outOfService)
+            new TeacherCreated($id, $name, $chairId, $outOfService)
         );
 
         return $teacher;
@@ -59,9 +59,9 @@ class Teacher extends EventSourcedAggregateRoot
     /**
      * Apply create teacher event.
      *
-     * @param CreateTeacherEvent $event
+     * @param TeacherCreated $event
      */
-    public function applyCreateTeacherEvent(CreateTeacherEvent $event)
+    public function applyCreateTeacherEvent(TeacherCreated $event)
     {
         $this->id = $event->id;
         $this->name = $event->name;

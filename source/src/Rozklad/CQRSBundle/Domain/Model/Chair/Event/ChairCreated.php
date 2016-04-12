@@ -2,10 +2,10 @@
 namespace Rozklad\CQRSBundle\Domain\Model\Chair\Event;
 
 /**
- * Class CreateChairEvent
+ * Class ChairCreated
  * @package Rozklad\CQRSBundle\Domain\Model\Chair\Event
  */
-class CreateChairEvent
+class ChairCreated
 {
     /**
      * @var string

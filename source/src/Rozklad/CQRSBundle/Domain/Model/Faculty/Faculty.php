@@ -3,7 +3,7 @@
 namespace Rozklad\CQRSBundle\Domain\Model;
 
 use Broadway\EventSourcing\EventSourcedAggregateRoot;
-use Rozklad\CQRSBundle\Domain\Model\Faculty\Event\CreateFacultyEvent;
+use Rozklad\CQRSBundle\Domain\Model\Faculty\Event\FacultyCreated;
 
 /**
  * Class Faculty
@@ -30,7 +30,7 @@ class Faculty extends EventSourcedAggregateRoot
     public static function create($id, $title)
     {
         $faculty =  new static();
-        $faculty->apply(new CreateFacultyEvent($id, $title));
+        $faculty->apply(new FacultyCreated($id, $title));
 
         return $faculty;
     }
@@ -44,9 +44,9 @@ class Faculty extends EventSourcedAggregateRoot
     }
 
     /**
-     * @param CreateFacultyEvent $event
+     * @param FacultyCreated $event
      */
-    public function applyCreateFacultyEvent(CreateFacultyEvent $event)
+    public function applyCreateFacultyEvent(FacultyCreated $event)
     {
         $this->id = $event->id;
         $this->title = $event->title;
