@@ -23,7 +23,7 @@ class ChairCommandHandler extends CommandHandler
      */
     public function __construct(ChairRepository $repository)
     {
-        $this->$repository = $repository;
+        $this->repository = $repository;
     }
 
     public function handleCreateSemester(CreateChair $command)
