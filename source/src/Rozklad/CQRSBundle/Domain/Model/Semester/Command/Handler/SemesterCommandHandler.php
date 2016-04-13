@@ -22,7 +22,7 @@ class SemesterCommandHandler extends CommandHandler
      */
     public function __construct(SemesterRepository $repository)
     {
-        $this->$repository = $repository;
+        $this->repository = $repository;
     }
 
     public function handleCreateSemester(Semester\Command\CreateSemester$command)
