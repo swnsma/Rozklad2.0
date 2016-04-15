@@ -1,17 +1,17 @@
 <?php
 
-namespace Rozklad\CQRSBundle\Domain\Model\Teacher;
+namespace Rozklad\CQRSBundle\Domain\Model\Subject;
 
+use Broadway\EventSourcing\EventSourcingRepository;
 use Broadway\EventHandling\EventBusInterface;
 use Broadway\EventSourcing\AggregateFactory\PublicConstructorAggregateFactory;
-use Broadway\EventSourcing\EventSourcingRepository;
 use Broadway\EventStore\EventStoreInterface;
 
 /**
- * Class TeacherRepository
- * @package Rozklad\CQRSBundle\Domain\Model\Teacher
+ * Class SubjectRepository
+ * @package Rozklad\CQRSBundle\Domain\Model\Subject
  */
-class TeacherRepository extends EventSourcingRepository
+class SubjectRepository extends EventSourcingRepository
 {
     /**
      * @param EventStoreInterface $eventStore
@@ -24,6 +24,6 @@ class TeacherRepository extends EventSourcingRepository
         $eventStreamDecorators
     )
     {
-        parent::__construct($eventStore, $eventBus, Teacher::class, new PublicConstructorAggregateFactory(), $eventStreamDecorators);
+        parent::__construct($eventStore, $eventBus, Subject::class, new PublicConstructorAggregateFactory(), $eventStreamDecorators);
     }
 }
