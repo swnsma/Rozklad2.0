@@ -49,6 +49,7 @@ class Subject extends EventSourcedAggregateRoot
     {
         $subject = new static();
         $subject->apply(new SubjectCreated($id, $title, $chairId, $oos));
+
         return $subject;
     }
 

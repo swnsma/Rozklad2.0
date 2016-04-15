@@ -61,8 +61,7 @@ class Faculty extends EventSourcedAggregateRoot
      */
     public function becomeOutOfService()
     {
-        if (!$this->outOfService)
-        {
+        if (!$this->outOfService) {
             $this->apply(new FacultyBecameOutOfService($this->id));
         }
     }
@@ -72,8 +71,7 @@ class Faculty extends EventSourcedAggregateRoot
      */
     public function returnToService()
     {
-        if ($this->outOfService)
-        {
+        if ($this->outOfService) {
             $this->apply(new FacultyReturnedToService($this->id));
         }
     }

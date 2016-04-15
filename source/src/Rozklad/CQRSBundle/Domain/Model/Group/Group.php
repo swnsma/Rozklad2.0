@@ -124,7 +124,6 @@ class Group extends EventSourcedAggregateRoot
         }
     }
 
-
     /**
      * @return string
      */
