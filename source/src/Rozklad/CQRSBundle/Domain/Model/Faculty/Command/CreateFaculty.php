@@ -14,12 +14,21 @@ class CreateFaculty extends FacultyCommand
     private $title;
 
     /**
-     * @param $id
-     * @param $title
+     * @var bool
      */
-    public function __construct($id, $title)
+    private $outOfService;
+
+    /**
+     * CreateFaculty constructor.
+     *
+     * @param            $id
+     * @param            $title
+     * @param bool|false $oos
+     */
+    public function __construct($id, $title, $oos = false)
     {
         $this->title = $title;
+        $this->outOfService = $oos;
         parent::__construct($id);
     }
 
@@ -29,5 +38,13 @@ class CreateFaculty extends FacultyCommand
     public function getTitle()
     {
         return $this->title;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isOutOfService()
+    {
+        return $this->outOfService;
     }
 }

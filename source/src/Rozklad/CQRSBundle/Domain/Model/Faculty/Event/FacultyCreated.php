@@ -14,14 +14,21 @@ class FacultyCreated extends FacultyEvent
     private $title;
 
     /**
-     * CreateFacultyEvent constructor.
+     * @var bool
+     */
+    private $outOfService;
+
+    /**
+     * FacultyCreated constructor.
      *
      * @param $id
      * @param $title
+     * @param $oos\
      */
-    public function __construct($id, $title)
+    public function __construct($id, $title, $oos)
     {
         $this->title = $title;
+        $this->outOfService = $oos;
         parent::__construct($id);
     }
 
@@ -34,12 +41,21 @@ class FacultyCreated extends FacultyEvent
     }
 
     /**
+     * @return bool
+     */
+    public function isOutOfService()
+    {
+        return $this->outOfService;
+    }
+
+    /**
      * {@inheritdoc}
      */
     public function serialize()
     {
         return array_merge(parent::serialize(), array(
-            'title' => $this->title
+            'title' => $this->title,
+            'oos' => $this->outOfService
         ));
     }
 
@@ -48,6 +64,6 @@ class FacultyCreated extends FacultyEvent
      */
     public static function deserialize(array $data)
     {
-        return new static($data['id'], $data['title']);
+        return new static($data['id'], $data['title'], $data['oos']);
     }
 }
