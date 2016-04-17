@@ -1,0 +1,27 @@
+h1.timetable-title {
+    text-align: center;
+    font-family: 'PT Serif', serif;
+    font-weight: 500;
+}
+
+.group-select:first-child {
+    border-top: black 1px solid;
+}
+.calendar-page .content-wrapper{
+    background-color: white;
+}
+
+.group-select {
+    border-bottom: black 1px solid;
+}
+
+.faculty-select {
+    border-bottom: 1px dashed white;
+}
+.app-content{
+    background-color: white;
+}
+
+.calendar-page .body-content{
+    position: relative;
+}

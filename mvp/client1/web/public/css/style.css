@@ -1,0 +1,44 @@
+.calendar-container {
+    background: white;
+    position: relative;
+    z-index: 100000;
+}
+
+.dropdown-menu.inner {
+    position: relative;
+}
+
+body {
+    position: relative;
+    background: white;
+}
+
+body .content {
+    overflow-x: auto;
+}
+
+h1.timetable-title {
+    text-align: center;
+    font-family: 'PT Serif', serif;
+    font-weight: 500;
+}
+
+.calendar-page .content-wrapper {
+    background: white;
+}
+
+.group-select:first-child {
+    border-top: black 1px solid;
+}
+
+.group-select {
+    border-bottom: black 1px solid;
+}
+
+.faculty-select {
+    border-bottom: 1px dashed white;
+}
+
+#calendar .pair{
+    cursor: pointer;
+}

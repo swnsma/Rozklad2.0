@@ -1,0 +1,21 @@
+.app{
+    background-color: white;
+}
+.list-group-item.active.faculty-select{
+    background-color: white;
+}
+a:focus{
+    outline: none;
+    text-decoration: none;
+    color: blue !important;
+}
+
+.faculty-select, .group-select {
+    border-bottom: 1px dashed blue;
+}
+a.logo {
+    color:white;
+}
+a.logo:focus, .logo:active, .logo:hover .logo.active{
+    color: #999;
+}
