@@ -2,8 +2,6 @@
 
 namespace Rozklad\UniversityBundle\Entity;
 
-use Doctrine\ORM\Mapping as ORM;
-
 /**
  * Specialty
  */
@@ -19,7 +17,6 @@ class Specialty
      */
     private $title;
 
-
     /**
      * Get id
      *
@@ -33,7 +30,7 @@ class Specialty
     /**
      * Set title
      *
-     * @param string $title
+     * @param  string    $title
      * @return Specialty
      */
     public function setTitle($title)
@@ -58,11 +55,10 @@ class Specialty
      */
     private $faculty;
 
-
     /**
      * Set faculty
      *
-     * @param \Rozklad\UniversityBundle\Entity\Faculty $faculty
+     * @param  \Rozklad\UniversityBundle\Entity\Faculty $faculty
      * @return Specialty
      */
     public function setFaculty(\Rozklad\UniversityBundle\Entity\Faculty $faculty = null)
@@ -84,6 +80,6 @@ class Specialty
 
     public function __toString()
     {
-        return (string)$this->title;
+        return (string) $this->title;
     }
 }

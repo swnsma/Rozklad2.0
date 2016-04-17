@@ -2,8 +2,6 @@
 
 namespace Rozklad\UniversityBundle\Entity;
 
-use Doctrine\ORM\Mapping as ORM;
-
 /**
  * Event
  */
@@ -19,11 +17,10 @@ class Event
      */
     private $date;
 
-
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -33,7 +30,7 @@ class Event
     /**
      * Set date
      *
-     * @param \DateTime $date
+     * @param  \DateTime $date
      * @return Event
      */
     public function setDate($date)
@@ -46,7 +43,7 @@ class Event
     /**
      * Get date
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
     public function getDate()
     {
@@ -72,11 +69,10 @@ class Event
      */
     private $teacher;
 
-
     /**
      * Set schedule
      *
-     * @param \Rozklad\UniversityBundle\Entity\Schedule $schedule
+     * @param  \Rozklad\UniversityBundle\Entity\Schedule $schedule
      * @return Event
      */
     public function setSchedule(\Rozklad\UniversityBundle\Entity\Schedule $schedule = null)
@@ -89,7 +85,7 @@ class Event
     /**
      * Get schedule
      *
-     * @return \Rozklad\UniversityBundle\Entity\Schedule 
+     * @return \Rozklad\UniversityBundle\Entity\Schedule
      */
     public function getSchedule()
     {
@@ -99,7 +95,7 @@ class Event
     /**
      * Set auditory
      *
-     * @param \Rozklad\UniversityBundle\Entity\Auditory $auditory
+     * @param  \Rozklad\UniversityBundle\Entity\Auditory $auditory
      * @return Event
      */
     public function setAuditory(\Rozklad\UniversityBundle\Entity\Auditory $auditory = null)
@@ -112,7 +108,7 @@ class Event
     /**
      * Get auditory
      *
-     * @return \Rozklad\UniversityBundle\Entity\Auditory 
+     * @return \Rozklad\UniversityBundle\Entity\Auditory
      */
     public function getAuditory()
     {
@@ -122,7 +118,7 @@ class Event
     /**
      * Set subject
      *
-     * @param \Rozklad\UniversityBundle\Entity\Subject $subject
+     * @param  \Rozklad\UniversityBundle\Entity\Subject $subject
      * @return Event
      */
     public function setSubject(\Rozklad\UniversityBundle\Entity\Subject $subject = null)
@@ -135,7 +131,7 @@ class Event
     /**
      * Get subject
      *
-     * @return \Rozklad\UniversityBundle\Entity\Subject 
+     * @return \Rozklad\UniversityBundle\Entity\Subject
      */
     public function getSubject()
     {
@@ -145,7 +141,7 @@ class Event
     /**
      * Set teacher
      *
-     * @param \Rozklad\UniversityBundle\Entity\Teacher $teacher
+     * @param  \Rozklad\UniversityBundle\Entity\Teacher $teacher
      * @return Event
      */
     public function setTeacher(\Rozklad\UniversityBundle\Entity\Teacher $teacher = null)
@@ -158,7 +154,7 @@ class Event
     /**
      * Get teacher
      *
-     * @return \Rozklad\UniversityBundle\Entity\Teacher 
+     * @return \Rozklad\UniversityBundle\Entity\Teacher
      */
     public function getTeacher()
     {
@@ -180,7 +176,7 @@ class Event
     /**
      * Add groups
      *
-     * @param \Rozklad\UniversityBundle\Entity\Group $groups
+     * @param  \Rozklad\UniversityBundle\Entity\Group $groups
      * @return Event
      */
     public function addGroup(\Rozklad\UniversityBundle\Entity\Group $groups)
@@ -203,7 +199,7 @@ class Event
     /**
      * Get groups
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getGroups()
     {

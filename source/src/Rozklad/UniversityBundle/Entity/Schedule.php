@@ -2,8 +2,6 @@
 
 namespace Rozklad\UniversityBundle\Entity;
 
-use Doctrine\ORM\Mapping as ORM;
-
 /**
  * Class Schedule
  * @package Rozklad\UniversityBundle\Entity
@@ -25,11 +23,10 @@ class Schedule
      */
     private $to;
 
-
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {

@@ -15,12 +15,13 @@ class SemesterRepository extends EventSourcingRepository
 {
     /**
      * @param EventStoreInterface $eventStore
-     * @param EventBusInterface $eventBus
+     * @param EventBusInterface   $eventBus
      */
     public function __constructor(
         EventStoreInterface $eventStore,
-        EventBusInterface $eventBus
+        EventBusInterface $eventBus,
+        $eventStreamDecorators
     ) {
-        parent::__construct($eventStore, $eventBus, Semester::class, new PublicConstructorAggregateFactory());
+        parent::__construct($eventStore, $eventBus, Semester::class, new PublicConstructorAggregateFactory(), $eventStreamDecorators);
     }
 }

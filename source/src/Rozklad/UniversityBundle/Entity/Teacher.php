@@ -2,8 +2,6 @@
 
 namespace Rozklad\UniversityBundle\Entity;
 
-use Doctrine\ORM\Mapping as ORM;
-
 /**
  * Teacher
  */
@@ -19,7 +17,6 @@ class Teacher
      */
     private $name;
 
-
     /**
      * Get id
      *
@@ -33,7 +30,7 @@ class Teacher
     /**
      * Set name
      *
-     * @param string $name
+     * @param  string  $name
      * @return Teacher
      */
     public function setName($name)
@@ -58,11 +55,10 @@ class Teacher
      */
     private $chair;
 
-
     /**
      * Set chair
      *
-     * @param \Rozklad\UniversityBundle\Entity\Chair $chair
+     * @param  \Rozklad\UniversityBundle\Entity\Chair $chair
      * @return Teacher
      */
     public function setChair(\Rozklad\UniversityBundle\Entity\Chair $chair = null)

@@ -16,19 +16,55 @@ class FacultyCommandHandler extends CommandHandler
     /**
      * @var FacultyRepository
      */
-    private $semesterRepository;
+    private $repository;
 
     /**
      * @param FacultyRepository $repository
      */
     public function __construct(FacultyRepository $repository)
     {
-        $this->semesterRepository = $repository;
+        $this->repository = $repository;
     }
 
-    public function handleCreateSemester(CreateFaculty $command)
+    /**
+     * @param CreateFaculty $command
+     */
+    public function handleCreateFaculty(CreateFaculty $command)
     {
-        $semester = Faculty::create($command->id, $command->title);
-        $this->semesterRepository->save($semester);
+        $faculty = Faculty::create($command->getId(), $command->getTitle(), $command->isOutOfService());
+        $this->repository->save($faculty);
+    }
+
+    /**
+     * @param Faculty\Command\ChangeFacultyTitle $command
+     */
+    public function handleChangeFacultyTitle(Faculty\Command\ChangeFacultyTitle $command)
+    {
+        /** @var Faculty $faculty */
+        $faculty = $this->repository->load($command->getId());
+        $faculty->changeTitle($command->getTitle());
+        $this->repository->save($faculty);
+    }
+
+    /**
+     * @param Faculty\Command\BecomeFacultyOutOfService $command
+     */
+    public function handleBecomeFacultyOutOfService(Faculty\Command\BecomeFacultyOutOfService $command)
+    {
+        /** @var Faculty $faculty */
+        $faculty = $this->repository->load($command->getId());
+        $faculty->becomeOutOfService();
+        $this->repository->save($faculty);
+    }
+
+    /**
+     * @param Faculty\Command\ReturnFacultyToService $command
+     */
+    public function handleReturnFacultyToService(Faculty\Command\ReturnFacultyToService $command)
+    {
+        /** @var Faculty $faculty */
+        $faculty = $this->repository->load($command->getId());
+        $faculty->returnToService();
+        $this->repository->save($faculty);
     }
 }

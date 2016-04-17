@@ -2,8 +2,6 @@
 
 namespace Rozklad\UniversityBundle\Entity;
 
-use Doctrine\ORM\Mapping as ORM;
-
 /**
  * Chair
  */
@@ -19,7 +17,6 @@ class Chair
      */
     private $title;
 
-
     /**
      * Get id
      *
@@ -33,7 +30,7 @@ class Chair
     /**
      * Set title
      *
-     * @param string $title
+     * @param  string $title
      * @return Chair
      */
     public function setTitle($title)
@@ -55,6 +52,6 @@ class Chair
 
     public function __toString()
     {
-        return (string)$this->title;
+        return (string) $this->title;
     }
 }

@@ -15,13 +15,15 @@ class TeacherRepository extends EventSourcingRepository
 {
     /**
      * @param EventStoreInterface $eventStore
-     * @param EventBusInterface $eventBus
+     * @param EventBusInterface   $eventBus
+     * @param                     $eventStreamDecorators
      */
     public function __constructor(
         EventStoreInterface $eventStore,
-        EventBusInterface $eventBus
+        EventBusInterface $eventBus,
+        $eventStreamDecorators
     )
     {
-        parent::__construct($eventStore, $eventBus, Teacher::class, new PublicConstructorAggregateFactory());
+        parent::__construct($eventStore, $eventBus, Teacher::class, new PublicConstructorAggregateFactory(), $eventStreamDecorators);
     }
 }

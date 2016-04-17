@@ -3,53 +3,5 @@
 <container xmlns="http://symfony.com/schema/dic/services"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
-    <services>
-        <!--Teacher -->
-        <service id="rozklad.domain.teacher.command_handler" class="Rozklad\CQRSBundle\Domain\Model\Teacher\Command\Handler\TeacherCommandHandler">
-            <argument type="service" id="rozklad.domain.teacher.repository"/>
-        </service>
-        <service id="rozklad.domain.teacher.repository" class="Rozlkad\CQRSBundle\Domain\Model\TeacherRepository">
-            <argument type="service" id="broadway.event_store" />
-            <argument type="service" id="broadway.event_handling.event_bus" />
-            <argument type="collection">
-                <argument type="service" id="broadway.metadata_enriching_event_stream_decorator" />
-            </argument>
-        </service>
 
-        <!--Chair -->
-        <service id="rozklad.domain.chair.command_handler" class="Rozklad\CQRSBundle\Domain\Model\Chair\Command\Handler\ChairCommandHandler">
-            <argument type="service" id="rozklad.domain.chair.repository"/>
-        </service>
-        <service id="rozklad.domain.chair.repository" class="Rozklad\CQRSBundle\Domain\Model\Chair\ChairRepository">
-            <argument type="service" id="broadway.event_store" />
-            <argument type="service" id="broadway.event_handling.event_bus" />
-            <argument type="collection">
-                <argument type="service" id="broadway.metadata_enriching_event_stream_decorator" />
-            </argument>
-        </service>
-
-        <!--Semester -->
-        <service id="rozklad.domain.semester.command_handler" class="Rozklad\CQRSBundle\Domain\Model\Semester\Command\Handler\SemesterCommandHandler">
-            <argument type="service" id="rozklad.domain.semester.repository"/>
-        </service>
-        <service id="rozklad.domain.semester.repository" class="Rozklad\CQRSBundle\Domain\Model\Semester\SemesterRepository">
-            <argument type="service" id="broadway.event_store" />
-            <argument type="service" id="broadway.event_handling.event_bus" />
-            <argument type="collection">
-                <argument type="service" id="broadway.metadata_enriching_event_stream_decorator" />
-            </argument>
-        </service>
-
-        <!--Faculty -->
-        <service id="rozklad.domain.faculty.command_handler" class="Rozklad\CQRSBundle\Domain\Model\Faculty\Command\Handler\FacultyCommandHandler">
-            <argument type="service" id="rozklad.domain.faculty.repository"/>
-        </service>
-        <service id="rozklad.domain.faculty.repository" class="Rozklad\CQRSBundle\Domain\Model\Faculty\FacultyRepository">
-            <argument type="service" id="broadway.event_store" />
-            <argument type="service" id="broadway.event_handling.event_bus" />
-            <argument type="collection">
-                <argument type="service" id="broadway.metadata_enriching_event_stream_decorator" />
-            </argument>
-        </service>
-    </services>
 </container>

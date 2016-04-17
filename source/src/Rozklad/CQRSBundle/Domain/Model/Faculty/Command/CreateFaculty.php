@@ -6,25 +6,45 @@ namespace Rozklad\CQRSBundle\Domain\Model\Faculty\Command;
  * Class CreateFaculty
  * @package Rozklad\CQRSBundle\Domain\Model\Semester\Command
  */
-class CreateFaculty
+class CreateFaculty extends FacultyCommand
 {
     /**
      * @var string
      */
-    public $id;
+    private $title;
 
     /**
-     * @var string
+     * @var bool
      */
-    public $title;
+    private $outOfService;
 
     /**
-     * @param $id
-     * @param $title
+     * CreateFaculty constructor.
+     *
+     * @param            $id
+     * @param            $title
+     * @param bool|false $oos
      */
-    public function __construct($id, $title)
+    public function __construct($id, $title, $oos = false)
     {
-        $this->id = $id;
         $this->title = $title;
+        $this->outOfService = $oos;
+        parent::__construct($id);
+    }
+
+    /**
+     * @return string
+     */
+    public function getTitle()
+    {
+        return $this->title;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isOutOfService()
+    {
+        return $this->outOfService;
     }
 }

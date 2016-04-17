@@ -6,18 +6,12 @@ namespace Rozklad\CQRSBundle\Domain\Model\Chair\Command;
  * Class CreateChair
  * @package Rozklad\CQRSBundle\Domain\Model\Chair\Command
  */
-class CreateChair
+class CreateChair extends ChairCommand
 {
     /**
      * @var string
      */
-    public $id;
-
-    /**
-     * @var string
-     */
-    public $title;
-
+    private $title;
 
     /**
      * @param $id
@@ -25,7 +19,15 @@ class CreateChair
      */
     public function __construct($id, $title)
     {
-        $this->id = $id;
         $this->title = $title;
+        parent::__construct($id);
+    }
+
+    /**
+     * @return string
+     */
+    public function getTitle()
+    {
+        return $this->title;
     }
 }

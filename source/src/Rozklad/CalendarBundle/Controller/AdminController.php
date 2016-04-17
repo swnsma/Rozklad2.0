@@ -9,9 +9,7 @@
 namespace Rozklad\CalendarBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
 use Sonata\AdminBundle\Controller\CoreController;
 
 class AdminController extends CoreController

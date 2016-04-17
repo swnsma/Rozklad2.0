@@ -6,27 +6,22 @@ namespace Rozklad\CQRSBundle\Domain\Model\Teacher\Command;
  * Class CreateTeacher
  * @package Rozklad\CQRSBundle\Domain\Model\Teacher\Command
  */
-class CreateTeacher
+class CreateTeacher extends TeacherCommand
 {
     /**
      * @var string
      */
-    public $id;
+    private $name;
 
     /**
      * @var string
      */
-    public $name;
-
-    /**
-     * @var string
-     */
-    public $chairId;
+    private $chairId;
 
     /**
      * @var boolean
      */
-    public $outOfService;
+    private $outOfService;
 
     /**
      * @param $id
@@ -36,9 +31,34 @@ class CreateTeacher
      */
     public function __construct($id, $name, $chairId, $outOfService = false)
     {
-        $this->id = $id;
         $this->name = $name;
         $this->chairId = $chairId;
         $this->outOfService = $outOfService;
+
+        parent::__construct($id);
+    }
+
+    /**
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * @return string
+     */
+    public function getChairId()
+    {
+        return $this->chairId;
+    }
+
+    /**
+     * @return bool|false
+     */
+    public function getOutOfService()
+    {
+        return $this->outOfService;
     }
 }

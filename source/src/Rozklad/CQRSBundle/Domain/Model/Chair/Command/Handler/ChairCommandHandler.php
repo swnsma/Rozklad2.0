@@ -16,19 +16,28 @@ class ChairCommandHandler extends CommandHandler
     /**
      * @var ChairRepository
      */
-    private $semesterRepository;
+    private $repository;
 
     /**
      * @param ChairRepository $repository
      */
     public function __construct(ChairRepository $repository)
     {
-        $this->semesterRepository = $repository;
+        $this->repository = $repository;
     }
 
     public function handleCreateSemester(CreateChair $command)
     {
-        $semester = Chair::create($command->id, $command->title);
-        $this->semesterRepository->save($semester);
+        /** @var Chair $chair */
+        $chair = Chair::create($command->getId(), $command->getTitle());
+        $this->repository->save($chair);
+    }
+
+    public function handleChangeChairTitle(Chair\Command\ChangeChairTitle $command)
+    {
+        /** @var Chair $chair */
+        $chair = $this->repository->load($command->getId());
+        $chair->changeTitle($command->getTitle());
+        $this->repository->save($chair);
     }
 }

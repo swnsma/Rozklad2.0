@@ -15,13 +15,14 @@ class FacultyRepository extends EventSourcingRepository
 {
     /**
      * @param EventStoreInterface $eventStore
-     * @param EventBusInterface $eventBus
+     * @param EventBusInterface   $eventBus
      */
     public function __constructor(
         EventStoreInterface $eventStore,
-        EventBusInterface $eventBus
+        EventBusInterface $eventBus,
+        $eventStreamDecorators
     )
     {
-        parent::__construct($eventStore, $eventBus, Faculty::class, new PublicConstructorAggregateFactory());
+        parent::__construct($eventStore, $eventBus, Faculty::class, new PublicConstructorAggregateFactory(),$eventStreamDecorators);
     }
 }

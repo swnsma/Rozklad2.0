@@ -3,7 +3,10 @@
 namespace Rozklad\CQRSBundle\Domain\Model;
 
 use Broadway\EventSourcing\EventSourcedAggregateRoot;
-use Rozklad\CQRSBundle\Domain\Model\Faculty\Event\CreateFacultyEvent;
+use Rozklad\CQRSBundle\Domain\Model\Faculty\Event\FacultyBecameOutOfService;
+use Rozklad\CQRSBundle\Domain\Model\Faculty\Event\FacultyChangedTitle;
+use Rozklad\CQRSBundle\Domain\Model\Faculty\Event\FacultyCreated;
+use Rozklad\CQRSBundle\Domain\Model\Faculty\Event\FacultyReturnedToService;
 
 /**
  * Class Faculty
@@ -22,17 +25,55 @@ class Faculty extends EventSourcedAggregateRoot
     private $title;
 
     /**
+     * @var bool
+     */
+    private $outOfService;
+
+    /**
      * @param $id
      * @param $title
+     * @param $oos
      *
      * @return static
      */
-    public static function create($id, $title)
+    public static function create($id, $title, $oos)
     {
         $faculty =  new static();
-        $faculty->apply(new CreateFacultyEvent($id, $title));
+        $faculty->apply(new FacultyCreated($id, $title, $oos));
 
         return $faculty;
+    }
+
+    /**
+     * @param $title string
+     */
+    public function changeTitle($title)
+    {
+        if ($this->title == $title) {
+            return;
+        }
+
+        $this->apply(new FacultyChangedTitle($this->id, $title));
+    }
+
+    /**
+     * Mark faculty as not exists more.
+     */
+    public function becomeOutOfService()
+    {
+        if (!$this->outOfService) {
+            $this->apply(new FacultyBecameOutOfService($this->id));
+        }
+    }
+
+    /**
+     * Mark faculty as exists.
+     */
+    public function returnToService()
+    {
+        if ($this->outOfService) {
+            $this->apply(new FacultyReturnedToService($this->id));
+        }
     }
 
     /**
@@ -44,12 +85,37 @@ class Faculty extends EventSourcedAggregateRoot
     }
 
     /**
-     * @param CreateFacultyEvent $event
+     * @param FacultyCreated $event
      */
-    public function applyCreateFacultyEvent(CreateFacultyEvent $event)
+    public function applyFacultyCreated(FacultyCreated $event)
     {
-        $this->id = $event->id;
-        $this->title = $event->title;
+        $this->id = $event->getId();
+        $this->title = $event->getTitle();
+        $this->outOfService = $event->isOutOfService();
+    }
+
+    /**
+     * @param FacultyBecameOutOfService $event
+     */
+    public function applyFacultyBecameOutOfService(FacultyBecameOutOfService $event)
+    {
+        $this->outOfService = true;
+    }
+
+    /**
+     * @param FacultyReturnedToService $event
+     */
+    public function applyFacultyReturnedToService(FacultyReturnedToService $event)
+    {
+        $this->outOfService = false;
+    }
+
+    /**
+     * @param FacultyChangedTitle $event
+     */
+    public function applyFacultyChangedTitle(FacultyChangedTitle $event)
+    {
+        $this->title = $event->getTitle();
     }
 
 }
