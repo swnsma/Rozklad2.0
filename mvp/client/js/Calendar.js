@@ -143,12 +143,13 @@ Calendar.prototype.renderMobileDay = function(group,now, element){
         eventSources: [
             '/mvp/server/ajaxCall.php?group=' + group
         ],
-        eventAfterAllRender: function (view) {
-            if (view.name === "agendaDay") {
-                var minute = moment().format('mm');
-                minute = (minute < 30) ? '00' : '30';
-                var hour = moment().format('HH') + ':' + minute + ':00';
-                $('.fc-slats tr[data-time="' + hour + '"]').addClass('now')
+        eventRender: function (event, element) {
+            $(element).find('.fc-time span').before($('<span class="auditory">').text(event.auditory + ' '));
+            $(element).find('.fc-content').append($('<div class="teacher">').text(event.teacher));
+            if (event.type === '1') {
+                $(element).addClass('practice');
+            } else {
+                $(element).addClass('lecture');
             }
         }
     };
