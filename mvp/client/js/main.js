@@ -50,3 +50,19 @@ timetableApp.directive('groupselect', function () {
         }]
     }
 });
+timetableApp.directive('main', function () {
+    return {
+        restrict: "E",
+        templateUrl: function () {
+            if (isMobile.any) {
+                return "./partial/mobile/body.html";
+            }
+            else {
+                return "./partial/web/body.html";
+            }
+        },
+        controller: ['$route', function ($route) {
+            $route.reload();
+        }]
+    }
+});
