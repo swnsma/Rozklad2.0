@@ -11,7 +11,25 @@ function Calendar() {
         monthNamesShort: ['Січ.', 'Лют.', 'Бер.', 'Квіт.', 'Трав.', 'Чер.', 'Лип.', 'Серп.', 'Bер.', 'Жов.', 'Лис.', 'Гру.'],
         dayNames: ["Воскресенье", "Понедельник", "Вторник", "Среда", "Четверг", "Пятница", "Суббота"],
         dayNamesShort: ["ВС", "ПН", "ВТ", "СР", "ЧТ", "ПТ", "СБ"],
-        displayEventTime: true
+        displayEventTime: true,
+        timezone: 'local',
+        buttonText: {
+            today: "Сьогодні",
+            month: "Місяць",
+            week: "Тиждень",
+            day: "День"
+        },
+        timeFormat: 'H:mm',// uppercase H for 24-hour clock
+        axisFormat: 'H:mm',
+        eventRender: function (event, element) {
+            $(element).find('.fc-time span').before($('<span class="auditory">').text(event.auditory + ' '));
+            $(element).find('.fc-content').append($('<div class="teacher">').text(event.teacher));
+            if (event.type === '1') {
+                $(element).addClass('practice');
+            } else {
+                $(element).addClass('lecture');
+            }
+        }
     }
 }
 Calendar.prototype.renderCalendar = function (group, element) {
@@ -29,15 +47,6 @@ Calendar.prototype.renderCalendar = function (group, element) {
             center: 'title',
             right: 'agendaDay,agendaWeek'
         },
-        timezone: 'local',
-        buttonText: {
-            today: "Сьогодні",
-            month: "Місяць",
-            week: "Тиждень",
-            day: "День"
-        },
-        timeFormat: 'H:mm',// uppercase H for 24-hour clock
-        axisFormat: 'H:mm',
         eventAfterRender: function (event, element, view) {
             if (view.name === 'agendaWeek') {
                 function addClass($element) {
@@ -111,80 +120,88 @@ Calendar.prototype.renderCalendar = function (group, element) {
         },
         eventSources: [
             '/mvp/server/ajaxCall.php?group=' + group
-        ],
-        eventRender: function (event, element) {
-            $(element).find('.fc-time span').before($('<span class="auditory">').text(event.auditory + ' '));
-            $(element).find('.fc-content').append($('<div class="teacher">').text(event.teacher));
-            if (event.type === '1') {
-                $(element).addClass('practice');
-            } else {
-                $(element).addClass('lecture');
-            }
-        }
+        ]
     };
     $('#calendar').fullCalendar(_.extend(option, this._option));
 };
-
-Calendar.prototype.renderAuditory = function () {
+Calendar.prototype.renderMobileDay = function(group,now, element){
+    group = group ? group : null;
     var option = {
-        resourceAreaWidth: 230,
-        defaultDate: '2016-01-07',
-        editable: true,
-        aspectRatio: 1.5,
-        scrollTime: '00:00',
+        defaultView: "agendaDay",
+        height: 'auto',
+        slotLabelInterval: 10,
+        slotDuration: '00:30:00',
+        fixedWeekCount: false,
+        allDaySlot: false,
+        firstDay: 1,
         header: {
-            left: 'ktoday prev,next',
-            center: 'title',
+            left: '',
+            center: '',
             right: ''
         },
-        defaultView: 'timelineDay',
-        views: {
-            timelineThreeDays: {
-                type: 'timeline',
-                duration: {days: 3}
+        now: now,
+        eventSources: [
+            '/mvp/server/ajaxCall.php?group=' + group
+        ],
+        eventAfterAllRender: function (view) {
+            if (view.name === "agendaDay") {
+                var minute = moment().format('mm');
+                minute = (minute < 30) ? '00' : '30';
+                var hour = moment().format('HH') + ':' + minute + ':00';
+                $('.fc-slats tr[data-time="' + hour + '"]').addClass('now')
+            }
+        }
+    };
+    $('#mobileAddition').fullCalendar(_.extend(option, this._option));
+    $('#mobileAddition').fullCalendar( 'gotoDate', now);
+}
+
+Calendar.prototype.renderMobileCalendar = function (group, element) {
+    var self = this;
+    group = group ? group : null;
+    var option = {
+        defaultView: "agendaDay",
+        height: 'auto',
+        slotLabelInterval: 10,
+        slotDuration: '00:30:00',
+        fixedWeekCount: false,
+        allDaySlot: false,
+        firstDay: 1,
+        header: {
+            left: 'prev,next today ',
+            center: 'title',
+            right: 'agendaDay,month'
+        },
+
+        eventSources: [
+            '/mvp/server/ajaxCall.php?group=' + group
+        ],
+        eventAfterRender: function (event, element, view) {
+            if (view.name === 'month') {
+                $(element).remove();
             }
         },
-        resourceLabelText: 'Rooms',
-        resources: [
-            {id: 'a', title: 'Auditorium A'},
-            {id: 'b', title: 'Auditorium B', eventColor: 'green'},
-            {id: 'c', title: 'Auditorium C', eventColor: 'orange'},
-            {
-                id: 'd', title: 'Auditorium D', children: [
-                {id: 'd1', title: 'Room D1'},
-                {id: 'd2', title: 'Room D2'}
-            ]
-            },
-            {id: 'e', title: 'Auditorium E'},
-            {id: 'f', title: 'Auditorium F', eventColor: 'red'},
-            {id: 'g', title: 'Auditorium G'},
-            {id: 'h', title: 'Auditorium H'},
-            {id: 'i', title: 'Auditorium I'},
-            {id: 'j', title: 'Auditorium J'},
-            {id: 'k', title: 'Auditorium K'},
-            {id: 'l', title: 'Auditorium L'},
-            {id: 'm', title: 'Auditorium M'},
-            {id: 'n', title: 'Auditorium N'},
-            {id: 'o', title: 'Auditorium O'},
-            {id: 'p', title: 'Auditorium P'},
-            {id: 'q', title: 'Auditorium Q'},
-            {id: 'r', title: 'Auditorium R'},
-            {id: 's', title: 'Auditorium S'},
-            {id: 't', title: 'Auditorium T'},
-            {id: 'u', title: 'Auditorium U'},
-            {id: 'v', title: 'Auditorium V'},
-            {id: 'w', title: 'Auditorium W'},
-            {id: 'x', title: 'Auditorium X'},
-            {id: 'y', title: 'Auditorium Y'},
-            {id: 'z', title: 'Auditorium Z'}
-        ],
-        events: [
-            {id: '1', resourceId: 'b', start: '2016-01-07T02:00:00', end: '2016-01-07T07:00:00', title: 'event 1'},
-            {id: '2', resourceId: 'c', start: '2016-01-07T05:00:00', end: '2016-01-07T22:00:00', title: 'event 2'},
-            {id: '3', resourceId: 'd', start: '2016-01-06', end: '2016-01-08', title: 'event 3'},
-            {id: '4', resourceId: 'e', start: '2016-01-07T03:00:00', end: '2016-01-07T08:00:00', title: 'event 4'},
-            {id: '5', resourceId: 'f', start: '2016-01-07T00:30:00', end: '2016-01-07T02:30:00', title: 'event 5'}
-        ]
+        dayClick: function(date, jsEvent, view) {
+            if (view.name === 'month') {
+                self.renderMobileDay(group,date.format());
+                $('.select-day').removeClass('select-day');
+                this.addClass('select-day');
+            }
+        },
+        viewRender: function( view, element ){
+            if (view.name === 'month') {
+                debugger;
+                self.renderMobileDay(group,$('#calendar').fullCalendar('getDate').format());
+                $('#mobileAddition').css({
+                    'display':'block'
+                })
+            }else{
+                $('#mobileAddition').css({
+                    'display':'none'
+                })
+            }
+
+        }
     };
     $('#calendar').fullCalendar(_.extend(option, this._option));
 };

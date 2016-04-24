@@ -3,87 +3,90 @@
     /*min-width: 765px;*/
 /*}*/
 
-#calendar tr {
+.calendar tr {
     height: 43px;
 }
 
-#calendar .auditory {
+.calendar .auditory {
     color: black;
     font-size: 1.5em;
     font-weight: bold;
 }
 
-#calendar .practice .auditory,
-#calendar .lecture .auditory {
+.calendar .practice .auditory,
+.calendar .lecture .auditory {
     font-size: 2em;
 }
 
-#calendar .practice .fc-time,
-#calendar .practice .auditory,
-#calendar .practice .teacher {
+.calendar .practice .fc-time,
+.calendar .practice .auditory,
+.calendar .practice .teacher {
     color: #ccc;
 }
 
-#calendar .auditory {
+.calendar .auditory {
     text-decoration: underline;
     text-decoration-color: black;
 }
 
-#calendar .practice .fc-title {
+.calendar .practice .fc-title {
     color: white;
 }
 
-#calendar .lecture .fc-time,
-#calendar .lecture .teacher {
+.calendar .lecture .fc-time,
+.calendar .lecture .teacher {
     color: #333;
 }
 
-#calendar .lecture .fc-title,
-#calendar .lecture .auditory{
+.calendar .lecture .fc-title,
+.calendar .lecture .auditory{
     color: black;
 }
 
-#calendar .lecture {
+.calendar .lecture {
     background: #7986CB;
 }
 
-#calendar .practice {
+.calendar .practice {
     background: #1A237E;
 }
 
-#calendar .lecture, #calendar .practice {
+.calendar .lecture, #calendar .practice {
     border: 1px solid #ccc;
 }
 
-#calendar .practice .fc-title::before {
+.calendar .practice .fc-title::before {
     content: '(Пр) ';
 }
 
-#calendar .fc-today, #calendar .now {
+.calendar .fc-today, .calendar .now {
     background-color: rgba(0, 172, 214, 0.5);
 }
 
-#calendar .fc-event {
+.calendar .fc-event {
     font-size: 0.9em;
     font-weight: 700;
     color: #000;
     padding: 3px;
 }
 
-#calendar .teacher, #calendar .fc-time{
+.calendar .teacher, .calendar .fc-time{
     font-weight: 100;
     color: #111;
 }
 
-#calendar .fc-event-container .fc-time span:not(.auditory) {
+.calendar .fc-event-container .fc-time span:not(.auditory) {
     font-size: 1.7em;
     float: right;
 }
 
-#calendar .fc-title {
+.calendar .fc-title {
     font-size: 1.1em;
 }
 
-#calendar .fc-agendaDay-view .fc-today {
+.calendar .fc-agendaDay-view .fc-today {
     background: none;
+}
+.select-day{
+    background: rgb(58, 135, 173);
 }
