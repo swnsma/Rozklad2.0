@@ -16,9 +16,9 @@ timetableControllers.controller('GroupController', ['$scope', '$routeParams', fu
     $scope.group = $routeParams.group;
 
     if(isMobile.any) {
-        (new Calendar()).renderCalendar($scope.group);
-    }else{
         (new Calendar()).renderMobileCalendar($scope.group);
+    }else{
+        (new Calendar()).renderCalendar($scope.group);
     }
 }]);
 // timetableControllers.controller('AuditoryCtrl', ['$scope', '$routeParams', function ($scope, $routeParams) {
