@@ -186,7 +186,6 @@ Calendar.prototype.renderMobileCalendar = function (group, element) {
         },
         dayClick: function(date, jsEvent, view) {
             if (view.name === 'month') {
-                alert('click');
                 self.renderMobileDay(group,date.format());
                 $('.select-day').removeClass('select-day');
                 this.addClass('select-day');
