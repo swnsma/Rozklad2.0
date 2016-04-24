@@ -23,7 +23,6 @@
 <body ng-app="timetableApp"
       class="p-profile hold-transition skin-blue sidebar-mini calendar-page">
 
-
     <!--start mobile css-->
     <div ng-if="isMobile == true" ng-include="'./partial/mobile/css.html'"></div>
     <div ng-if="isMobile == false" ng-include="'./partial/web/css.html'"></div>
@@ -46,10 +45,12 @@
 <script src="node_modules/mobile-angular-ui/dist/js/mobile-angular-ui.gestures.min.js"></script>
 <script src="node_modules/admin-lte/bootstrap/js/bootstrap.min.js"></script>
 <script src="node_modules/admin-lte/dist/js/app.min.js"></script>
+
+    <script src="js/Calendar.js"></script>
+    <script src="js/controllers.js"></script>
 <script src="js/main.js"></script>
 
-<script src="js/Calendar.js"></script>
-<script src="js/controllers.js"></script>
+
 <!--end mobile script-->
 
 </body>

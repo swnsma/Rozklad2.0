@@ -16,7 +16,4 @@ timetableControllers.controller('GroupController', [ '$routeParams','$scope', fu
         (new Calendar()).renderCalendar($scope.group);
     }
 }]);
-// timetableControllers.controller('AuditoryCtrl', ['$scope', '$routeParams', function ($scope, $routeParams) {
-//     (new Calendar()).renderAuditory();
-// }]);
 
