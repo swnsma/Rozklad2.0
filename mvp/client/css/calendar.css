@@ -90,3 +90,10 @@
 .select-day{
     background: rgb(58, 135, 173);
 }
+.mobile-fc-content-skeleton{
+    height: 40px;
+}
+.mobile-fc-content-skeleton tbody{
+    overflow: hidden;
+    display: none;
+}

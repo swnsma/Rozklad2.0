@@ -5,13 +5,11 @@
 var timetableControllers = angular.module('timetableControllers', []);
 
 timetableControllers.controller('HomeController', [function () {
-    debugger;
     (new Calendar()).renderCalendar();
 }]);
 
 timetableControllers.controller('GroupController', [ '$routeParams','$scope', function ( $routeParams,$scope) {
     $scope.group = $routeParams.group;
-    debugger;
     if(isMobile.any) {
         (new Calendar()).renderMobileCalendar($scope.group);
     }else{

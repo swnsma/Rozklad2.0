@@ -179,7 +179,9 @@ Calendar.prototype.renderMobileCalendar = function (group, element) {
         ],
         eventAfterRender: function (event, element, view) {
             if (view.name === 'month') {
+                $('.fc-content-skeleton').addClass('mobile-fc-content-skeleton');
                 $(element).remove();
+
             }
         },
         dayClick: function(date, jsEvent, view) {
@@ -191,7 +193,6 @@ Calendar.prototype.renderMobileCalendar = function (group, element) {
         },
         viewRender: function( view, element ){
             if (view.name === 'month') {
-                debugger;
                 self.renderMobileDay(group,$('#calendar').fullCalendar('getDate').format());
                 $('#mobileAddition').css({
                     'display':'block'
