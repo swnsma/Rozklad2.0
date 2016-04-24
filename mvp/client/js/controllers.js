@@ -14,8 +14,12 @@ timetableControllers.controller('HomeController', [function () {
 
 timetableControllers.controller('GroupController', ['$scope', '$routeParams', function ($scope, $routeParams) {
     $scope.group = $routeParams.group;
-    debugger;
-    (new Calendar()).renderCalendar($scope.group);
+
+    if(isMobile.any) {
+        (new Calendar()).renderCalendar($scope.group);
+    }else{
+        (new Calendar()).renderMobileCalendar($scope.group);
+    }
 }]);
 // timetableControllers.controller('AuditoryCtrl', ['$scope', '$routeParams', function ($scope, $routeParams) {
 //     (new Calendar()).renderAuditory();
