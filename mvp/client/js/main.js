@@ -8,7 +8,6 @@ var timetableApp = angular.module('timetableApp', [
     'mobile-angular-ui.gestures'
 ]);
 
-
 timetableApp.config(['$routeProvider',
     function ($routeProvider) {
         $routeProvider.when('/', {
@@ -23,14 +22,17 @@ timetableApp.config(['$routeProvider',
             templateUrl: './partial/group.html',
             controller: 'GroupController',
             reloadOnSearch: false
-        // }).when('/auditory', {
-        //     templateUrl: 'public/partial/auditory.html',
-        //     controller: 'AuditoryCtrl'
+            // }).when('/auditory', {
+            //     templateUrl: 'public/partial/auditory.html',
+            //     controller: 'AuditoryCtrl'
         }).otherwise({
             redirectTo: '/'
         });
-    }]);
-
+    }])
+    .run(function ($rootScope) {
+        debugger;
+        $rootScope.isMobile = isMobile.any;
+    });
 timetableApp.directive('groupselect', function () {
     return {
         restrict: "E",
