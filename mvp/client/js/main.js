@@ -22,6 +22,10 @@ timetableApp.config(['$routeProvider',
             templateUrl: './partial/group.html',
             controller: 'GroupController',
             reloadOnSearch: false
+        }).when('/teacher/', {
+            templateUrl: './partial/teacher.html',
+            controller: 'TeacherController',
+            reloadOnSearch: false
         }).otherwise({
             redirectTo: '/'
         });

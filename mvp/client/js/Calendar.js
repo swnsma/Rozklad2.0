@@ -207,3 +207,33 @@ Calendar.prototype.renderMobileCalendar = function (group, element) {
     };
     $('#calendar').fullCalendar(_.extend(option, this._option));
 };
+Calendar.prototype.renderTeacher = function(data){
+    var option = {
+        resourceAreaWidth: 230,
+        aspectRatio: 1.5,
+        scrollTime: '00:00',
+        header: {
+            left: 'today prev,next',
+            center: 'title',
+            right: ''
+        },
+        defaultView: 'timelineDay',
+        views: {
+            timelineThreeDays: {
+                type: 'timeline',
+                duration: {days: 3}
+            }
+        },
+        resourceLabelText: 'Викладачі',
+        eventRender: function (event, element) {
+            $(element).find('.fc-content').append($('<div class="auditory">').text(event.auditory));
+            if (event.type === '1') {
+                $(element).addClass('practice');
+            } else {
+                $(element).addClass('lecture');
+            }
+        }
+    };
+    debugger;
+    $('#teacher').fullCalendar(_.extend(this._option,_.extend(option,data) ));
+};

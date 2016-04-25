@@ -97,3 +97,7 @@
     overflow: hidden;
     display: none;
 }
+
+.teacher .fc-event{
+    position: absolute;
+}
