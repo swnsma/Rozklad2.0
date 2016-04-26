@@ -101,3 +101,15 @@
 .teacher .fc-event{
     position: absolute;
 }
+
+.teacher .auditory{
+    font-size: 1.4em;
+    font-weight: bold;
+    color: black;
+}
+.teacher .fc-time{
+    font-size: 1.1em;
+}
+.teacher .fc-title{
+    color: #ccc;
+}
