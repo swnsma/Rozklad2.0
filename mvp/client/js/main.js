@@ -14,6 +14,10 @@ timetableApp.config(['$routeProvider',
             templateUrl: './partial/home.html',
             controller: 'HomeController',
             reloadOnSearch: false
+        }).when('/group/', {
+            templateUrl: './partial/home1.html',
+            controller: 'HomeController',
+            reloadOnSearch: false
         }).when('', {
             templateUrl: './partial/home.html',
             controller: 'HomeController',

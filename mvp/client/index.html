@@ -16,6 +16,8 @@
     <link rel="stylesheet" href="node_modules/fullcalendar-scheduler/dist/scheduler.min.css">
     <link rel="stylesheet" href="node_modules/fullcalendar/dist/fullcalendar.min.css"/>
 
+    <link rel="stylesheet" href="node_modules/materialize-css/dist/css/materialize.min.css"/>
+    <link rel="stylesheet" href="node_modules/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="css/calendar.css"/>
     <link rel="stylesheet" href="css/style.css"/>
 
@@ -25,12 +27,12 @@
       class="p-profile hold-transition skin-blue sidebar-mini calendar-page">
 
     <!--start mobile css-->
-    <div ng-if="isMobile == true" ng-include="'./partial/mobile/css.html'"></div>
-    <div ng-if="isMobile == false" ng-include="'./partial/web/css.html'"></div>
+    <!--<div ng-if="isMobile == true" ng-include="'./partial/mobile/css.html'"></div>-->
+    <!--<div ng-if="isMobile == false" ng-include="'./partial/web/css.html'"></div>-->
+    <div ng-view></div>
     <!--end mobile css-->
 
-    <main class="body-content"></main>
-
+    <!--<main class="body-content"></main>-->
 
 <!--start mobile script-->
 

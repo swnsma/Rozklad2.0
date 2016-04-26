@@ -3,7 +3,10 @@ h1.timetable-title {
     font-family: 'PT Serif', serif;
     font-weight: 500;
 }
-
+h1 {
+    font-family: 'PT Serif', serif;
+    font-weight: 500;
+}
 .group-select:first-child {
     border-top: black 1px solid;
 }
@@ -24,4 +27,17 @@ h1.timetable-title {
 
 .calendar-page .body-content{
     position: relative;
+}
+
+html,body, [ng-view]{
+    height: 100%;
+}
+.home, .home .block-first, .home .block-two{
+    height: 100%;
+}
+.home.row{
+    margin-bottom: 0;
+}
+.home, .home .block-first .inner-wrapper{
+    width: 100%;
 }
